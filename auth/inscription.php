@@ -1,5 +1,19 @@
+<?php if(isset($_SESSION['id_utilisateur'])) : ?>
+
+<a href="profil.php">Mon compte</a>
+
+<?php else : ?>
+
+<a href="auth/connexion.php">Connexion</a>
+<a href="auth/inscription.php">S'inscrire</a>
+
+<?php endif; ?>
+
 <?php
-// inscription.php
+
+$sql = "SELECT COUNT(*) FROM notification WHERE lu = 0";
+$notif = $pdo->query($sql)->fetchColumn();
+
 ?>
 
 <!DOCTYPE html>

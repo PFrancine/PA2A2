@@ -1,38 +1,108 @@
 <?php
 session_start();
-?>
 
+/* connexion base */
+require_once "database/connexion.php";
+
+/* récupérer 1 formation */
+$sqlFormation = "SELECT * FROM formation 
+WHERE statut='VALIDE' 
+ORDER BY date_formation 
+LIMIT 1";
+
+$formation = $pdo->query($sqlFormation)->fetch();
+
+/* récupérer 2 événements */
+$sqlEvenement = "SELECT * FROM evenement 
+ORDER BY date_evenement 
+LIMIT 2";
+
+$evenements = $pdo->query($sqlEvenement)->fetchAll();
+
+/* récupérer 4 annonces pour le forum */
+$sqlForum = "SELECT titre, date_publication 
+FROM annonce 
+ORDER BY date_publication DESC 
+LIMIT 4";
+
+$annonces = $pdo->query($sqlForum)->fetchAll();
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
 <title>UpcycleConnect</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<?php include("header.php"); ?>
+
+<!-- HEADER -->
+
+<header>
+
+<img src="images/logo.png" class="logo">
+
+<input type="text" placeholder="Rechercher...">
+
+<div class="icons">
+
+🔍
+
+<?php if(isset($_SESSION['id_utilisateur'])): ?>
+
+<a href="profil.php">👤</a>
+
+<?php else: ?>
+
+<a href="auth/login.php">👤</a>
+
+<?php endif; ?>
+
+☰
+
+</div>
+
+</header>
+
 
 <!-- HERO -->
+
 <section class="hero">
+
 <div class="hero-text">
-<h1>Du passé au renouveau,<br>créons un monde plus beau !</h1>
+
+<h1>
+Du passé au renouveau,<br>
+créons un monde plus beau !
+</h1>
+
 </div>
 
 <div class="hero-img">
-<img src="images/recyclage.jpeg">
+
+<img src="images/recyclage.jpg">
+
 </div>
+
 </section>
 
 
+
 <!-- PRESENTATION -->
+
 <section class="presentation">
 
 <h2>Découvrez UpCycle</h2>
 
 <p>
-Chez UpcycleConnect, nous sommes dédiée à la valorisation des matériaux et à la réduction des déchets par l'upcycling.
+Chez UpcycleConnect, nous sommes dédiés à la valorisation des matériaux et à la réduction des déchets par l’upcycling.
 </p>
 
 <p>
@@ -51,7 +121,9 @@ Ensemble, créons un monde plus beau.
 </section>
 
 
+
 <!-- CONSEILS -->
+
 <section class="conseils">
 
 <h2>Conseils & Astuces</h2>
@@ -87,63 +159,77 @@ Une chaise cassée peut devenir un support pour plantes.
 </section>
 
 
+
 <!-- CATALOGUE -->
+
 <section class="catalogue">
 
 <h2>Catalogue (formations / événements)</h2>
 
 <div class="cards">
 
+
+<!-- Formation -->
+
+<?php if($formation): ?>
+
 <div class="card">
 
 <h3>Formation</h3>
 
-<h4>Réparer et customiser des vêtements</h4>
+<h4><?= $formation['titre'] ?></h4>
 
-<img src="images/formation.jpg">
+<p>
+<?= substr($formation['description'],0,80) ?>...
+</p>
 
-<a href="formation.php">En savoir plus</a>
+<a href="catalogue/formation.php?id=<?= $formation['id_formation'] ?>">
+En savoir plus
+</a>
 
 </div>
 
-<!-- CATALOGUE -->
+<?php endif; ?>
+
+
+<!-- Evenements -->
+
+<?php foreach($evenements as $event): ?>
 
 <div class="card">
 
 <h3>Evenement</h3>
 
-<h4>Rencontre avec des artisans recyclage</h4>
+<h4><?= $event['titre'] ?></h4>
 
-<img src="images/artisan.jpg">
+<p>
+<?= substr($event['description'],0,80) ?>...
+</p>
 
-<a href="evenement.php">En savoir plus</a>
-
-</div>
-
-
-<div class="card">
-
-<h3>Evenement</h3>
-
-<h4>Marché d’objets upcyclés</h4>
-
-<img src="images/marche.jpg">
-
-<a href="evenement.php">En savoir plus</a>
+<a href="catalogue/evenement.php?id=<?= $event['id_evenement'] ?>">
+En savoir plus
+</a>
 
 </div>
+
+<?php endforeach; ?>
+
 
 </div>
 
 </section>
 
 
+
 <!-- CONNEXION -->
+
+<?php if(!isset($_SESSION['id_utilisateur'])): ?>
+
 <section class="connexion">
 
 <h2>Déjà membre ?</h2>
 
-<form action="auth/connexion.php" method="POST">
+<form action="auth/login.php" method="POST">
 
 <label>Email</label>
 <input type="email" name="email" required>
@@ -153,61 +239,81 @@ Une chaise cassée peut devenir un support pour plantes.
 
 <button type="submit">Se connecter</button>
 
-<p><a href="forgot.php">Mot de passe oublié ?</a></p>
-
-<p>Pas de compte ? <a href="auth/inscription.php">Inscrivez-vous</a></p>
+<p>
+Vous n'avez pas encore de compte ?
+<a href="auth/inscription.php">Inscrivez-vous maintenant</a>
+</p>
 
 </form>
 
 </section>
 
+<?php endif; ?>
+
+
 
 <!-- FORUM -->
+
 <section class="forum">
 
 <h2>Forum</h2>
 
 <h3>Actualités :</h3>
 
-<div class="post">
 
-<p>Comment transformer une vieille commode en meuble moderne ?</p>
-<span>2109 réponses</span>
-
-</div>
+<?php foreach($annonces as $annonce): ?>
 
 <div class="post">
 
-<p>Où déposer des objets volumineux dans les conteneurs ?</p>
-<span>903 réponses</span>
+<p><?= $annonce['titre'] ?></p>
+
+<span>
+<?= date('d M Y', strtotime($annonce['date_publication'])) ?>
+</span>
 
 </div>
 
-<div class="post">
-
-<p>Idées pour recycler des palettes en meubles</p>
-<span>302 réponses</span>
-
-</div>
-
-<div class="post">
-
-<p>Avis sur l’atelier “Créer une lampe recyclée”</p>
-<span>302 réponses</span>
-
-</div>
+<?php endforeach; ?>
 
 
 <h3>Question du jour</h3>
 
-<p>Que peut-on faire avec des bouteilles en verre recyclées ?</p>
+<p>
+Que peut-on faire avec des bouteilles en verre recyclées ?
+</p>
 
-<a href="forum.php" class="btn">Accéder au forum</a>
+<a href="forum.php" class="btn">
+Accéder au Forum
+</a>
 
 </section>
 
 
-<?php include("footer.php"); ?>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>Mentions légales</h3>
+
+<p>
+Nom : UpcycleConnect
+</p>
+
+<p>
+Siège social : 174 rue La Fayette, 75010 Paris
+</p>
+
+<p>
+Email : contact@upcycleconnect.fr
+</p>
+
+<p>
+Hébergeur : AWS
+</p>
+
+</footer>
+
 
 </body>
 </html>
