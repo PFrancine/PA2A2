@@ -32,7 +32,7 @@ exit();
             <div class="col-md-2 sidebar">
                 <h4 class="text-center">Upcycle</h4>
 
-                <a href="dashboard_particulier.php">Dashboard</a>
+                <a href="dashboard_parts.php">Dashboard</a>
                 <a href="deposer_annonce.php">Déposer une annonce</a>
                 <a href="#">Dépôt conteneur</a>
                 <a href="#">Formations</a>
