@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+
 
 require_once "../database.php";
 
@@ -20,11 +21,14 @@ if($user){
 
 if(password_verify($password, $user["mot_de_passe"])){
 
+session_start();
+
 $_SESSION["id_utilisateur"] = $user["id_utilisateur"];
 $_SESSION["prenom"] = $user["prenom"];
 $_SESSION["role"] = $user["id_role"];
-
-header("Location: ../index.php");
+if ($_SESSION['id_role'] == 1) {
+    header('location: ../parts/dashboard_parts.php');
+}
 exit();
 
 }
