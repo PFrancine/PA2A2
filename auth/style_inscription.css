@@ -1,64 +1,168 @@
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#c9d9c0;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 40px;
+background:#9fc48a;
+border:1px solid #333;
+}
+
+.logo{
+width:70px;
+}
+
+header input{
+width:500px;
+padding:12px;
+border-radius:30px;
+border:2px solid #333;
+background:#dbe8d1;
+}
+
+.icons{
+display:flex;
+gap:30px;
+font-size:25px;
+align-items:center;
+}
+
+/* CONTAINER */
+
 .inscription-container{
 
-background:#e9e9e9;
-width:600px;
+width:700px;
 margin:60px auto;
+background:#eeeeee;
 padding:40px;
-border-radius:20px;
+border-radius:25px;
 
 }
+
+/* TITRE */
+
+.inscription-container h2{
+margin-bottom:25px;
+font-size:28px;
+}
+
+/* ROW PRENOM NOM */
 
 .row{
-
 display:flex;
 gap:20px;
-
 }
+
+/* INPUT GROUP */
 
 .input-group{
-
 flex:1;
-
+display:flex;
+flex-direction:column;
 }
 
-.inscription-container input,
-.inscription-container select{
+/* LABEL */
+
+label{
+margin-top:15px;
+font-weight:bold;
+}
+
+/* INPUT */
+
+input, select{
 
 width:100%;
 padding:12px;
-margin:8px 0;
-border-radius:20px;
-border:1px solid #ccc;
-background:#dcead6;
+margin-top:5px;
+
+border-radius:25px;
+border:2px solid #333;
+
+background:#dbe8d1;
+
+font-size:14px;
 
 }
 
-.captcha{
+/* TEXTE INFO */
 
+small{
+color:#666;
+}
+
+/* CAPTCHA */
+
+.captcha{
 display:flex;
 align-items:center;
 gap:15px;
-
+margin-top:10px;
 }
 
 .captcha span{
 
 padding:10px 20px;
-background:#dcead6;
-border-radius:20px;
+background:#dbe8d1;
+border-radius:25px;
+border:2px solid #333;
 font-weight:bold;
 
 }
 
-.inscription-container button{
+/* BOUTON */
+
+button{
 
 width:100%;
-margin-top:20px;
-padding:12px;
-background:#0b7d2b;
-color:white;
-border:none;
-border-radius:25px;
-font-size:16px;
+margin-top:25px;
 
+padding:14px;
+
+background:#0a7a1e;
+color:white;
+
+border:none;
+border-radius:30px;
+
+font-size:16px;
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+button:hover{
+background:#065a16;
+}
+
+/* TEXTE BAS */
+
+.inscription-container p{
+margin-top:20px;
+text-align:center;
+}
+
+.inscription-container a{
+color:#0a7a1e;
+text-decoration:none;
+font-weight:bold;
+}
+
+.inscription-container a:hover{
+text-decoration:underline;
 }
