@@ -101,7 +101,7 @@ $message = "Email incorrect";
 
 <p class="links">
 Vous n'avez pas de compte ?
-<a href="/PA2A2/auth/inscription.php">S'inscrire</a>
+<a href="inscription.php">S'inscrire</a>
 </p>
 
 </form>
