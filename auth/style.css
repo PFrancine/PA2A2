@@ -1,0 +1,64 @@
+.inscription-container{
+
+background:#e9e9e9;
+width:600px;
+margin:60px auto;
+padding:40px;
+border-radius:20px;
+
+}
+
+.row{
+
+display:flex;
+gap:20px;
+
+}
+
+.input-group{
+
+flex:1;
+
+}
+
+.inscription-container input,
+.inscription-container select{
+
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:20px;
+border:1px solid #ccc;
+background:#dcead6;
+
+}
+
+.captcha{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+}
+
+.captcha span{
+
+padding:10px 20px;
+background:#dcead6;
+border-radius:20px;
+font-weight:bold;
+
+}
+
+.inscription-container button{
+
+width:100%;
+margin-top:20px;
+padding:12px;
+background:#0b7d2b;
+color:white;
+border:none;
+border-radius:25px;
+font-size:16px;
+
+}
