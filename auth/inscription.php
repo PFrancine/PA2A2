@@ -66,3 +66,76 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 ?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Inscription</title>
+
+<link rel="stylesheet" href="style_inscription.css">
+
+</head>
+
+<body>
+
+<section class="inscription-container">
+
+<h2>S’inscrire</h2>
+
+<?php if($message): ?>
+<p><?= $message ?></p>
+<?php endif; ?>
+
+<form method="POST">
+
+<div class="row">
+
+<div class="input-group">
+<label>Prénom</label>
+<input type="text" name="prenom" required>
+</div>
+
+<div class="input-group">
+<label>Nom</label>
+<input type="text" name="nom" required>
+</div>
+
+</div>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Mot de passe</label>
+<input type="password" name="password" required>
+
+<label>Confirmer mot de passe</label>
+<input type="password" name="confirm_password" required>
+
+<label>Vous êtes :</label>
+
+<select name="role" required>
+
+<option value="">Choisir</option>
+<option value="1">Particulier</option>
+<option value="2">Professionnel</option>
+<option value="3">Salarié</option>
+
+</select>
+
+<button type="submit">S'inscrire</button>
+
+<p>
+Déjà inscrit ?  
+<a href="connexion.php">Se connecter</a>
+</p>
+
+</form>
+
+</section>
+
+</body>
+</html>
