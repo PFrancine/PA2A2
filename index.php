@@ -2,7 +2,7 @@
 session_start();
 
 /* connexion base */
-require_once "database/connexion.php";
+require_once "auth/connexion.php";
 
 /* récupérer 1 formation */
 $sqlFormation = "SELECT * FROM formation 
