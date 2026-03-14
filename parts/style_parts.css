@@ -1,0 +1,44 @@
+body {
+  background: #fefee2;
+  font-family: "Montserrat", sans-serif;
+}
+
+.sidebar {
+  height: 100vh;
+  background: #228b22;
+  color: white;
+  padding-top: 20px;
+}
+
+.sidebar a {
+  color: white;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background: #008000;
+}
+
+.page-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  color: #228b22;
+}
+
+.card-action {
+  border: none;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.card-action:hover {
+  transform: scale(1.05);
+}
+
+.notification-box {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+}
