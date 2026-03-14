@@ -141,7 +141,7 @@ Une chaise cassée peut devenir un support pour plantes.
 <!-- CONNEXION -->
 <section class="connexion">
 
-<h2>Déjà membre ?</h2>
+<h2>Déjà membres ?</h2>
 
 <form action="login.php" method="POST">
 
