@@ -26,7 +26,7 @@ session_start();
 $_SESSION["id_utilisateur"] = $user["id_utilisateur"];
 $_SESSION["prenom"] = $user["prenom"];
 $_SESSION["role"] = $user["id_role"];
-if ($_SESSION['id_role'] == 1) {
+if ($_SESSION['role'] == 1) {
     header('location: ../parts/dashboard_parts.php');
 }
 exit();
