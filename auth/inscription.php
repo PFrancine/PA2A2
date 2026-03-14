@@ -1,25 +1,71 @@
-<?php if(isset($_SESSION['id_utilisateur'])) : ?>
-
-<a href="profil.php">Mon compte</a>
-
-<?php else : ?>
-
-<a href="auth/connexion.php">Connexion</a>
-<a href="auth/inscription.php">S'inscrire</a>
-
-<?php endif; ?>
-
 <?php
+require_once "connexion.php";
 
-$sql = "SELECT COUNT(*) FROM notification WHERE lu = 0";
-$notif = $pdo->query($sql)->fetchColumn();
+$message = "";
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+$prenom = htmlspecialchars($_POST["prenom"]);
+$nom = htmlspecialchars($_POST["nom"]);
+$email = htmlspecialchars($_POST["email"]);
+$password = $_POST["password"];
+$confirm = $_POST["confirm_password"];
+$role = $_POST["role"];
+
+/* vérifier mots de passe */
+
+if($password != $confirm){
+$message = "Les mots de passe ne correspondent pas.";
+}
+
+else{
+
+/* vérifier si email existe */
+
+$sql = "SELECT id_utilisateur FROM utilisateur WHERE email = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$email]);
+
+if($stmt->rowCount() > 0){
+$message = "Cet email existe déjà.";
+}
+
+else{
+
+/* hash mot de passe */
+
+$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+/* insertion utilisateur */
+
+$sqlInsert = "INSERT INTO utilisateur 
+(nom, prenom, email, mot_de_passe, id_role)
+VALUES (?, ?, ?, ?, ?)";
+
+$stmt = $pdo->prepare($sqlInsert);
+
+$stmt->execute([
+$nom,
+$prenom,
+$email,
+$passwordHash,
+$role
+]);
+
+$message = "Inscription réussie !";
+
+}
+
+}
+
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 <title>Inscription</title>
 
@@ -29,103 +75,60 @@ $notif = $pdo->query($sql)->fetchColumn();
 
 <body>
 
-<header class="topbar">
+<section class="inscription-container">
 
-<div class="logo">
-♻<br>UPCYCLE
-</div>
+<h2>S’inscrire</h2>
 
-<div class="search-bar"></div>
-
-<div class="top-icons">
-<div class="icon">⌕</div>
-<div class="icon">👤</div>
-
-<div class="menu">
-<span class="icon">☰</span>
-MENU
-</div>
-</div>
-
-</header>
-
-
-<main class="page-wrapper">
-
-<section class="form-card">
-
-<h1>S'inscrire</h1>
+<?php if($message): ?>
+<p><?= $message ?></p>
+<?php endif; ?>
 
 <form method="POST">
 
 <div class="row">
 
-<div class="field-group">
+<div class="input-group">
 <label>Prénom</label>
-<input type="text" name="prenom" placeholder="Jean">
+<input type="text" name="prenom" required>
 </div>
 
-<div class="field-group">
-<label>Nom de famille</label>
-<input type="text" name="nom" placeholder="Dupont">
+<div class="input-group">
+<label>Nom</label>
+<input type="text" name="nom" required>
 </div>
 
 </div>
-
 
 <label>Email</label>
-<input type="email" name="email" placeholder="exemple@domaine.fr">
-
+<input type="email" name="email" required>
 
 <label>Mot de passe</label>
-<input type="password" name="password">
-<p class="hint">Doit comporter au moins 6 caractères</p>
+<input type="password" name="password" required>
 
-
-<label>Confirmez votre mot de passe</label>
-<input type="password" name="confirm_password">
-
+<label>Confirmer mot de passe</label>
+<input type="password" name="confirm_password" required>
 
 <label>Vous êtes :</label>
-<select name="role">
-<option>Veuillez choisir une réponse</option>
-<option>Particulier</option>
-<option>Professionnel</option>
-<option>Association</option>
-<option>Entreprise</option>
+
+<select name="role" required>
+
+<option value="">Choisir</option>
+<option value="1">Particulier</option>
+<option value="2">Professionnel</option>
+<option value="3">Salarié</option>
+
 </select>
 
+<button type="submit">S'inscrire</button>
 
-<label>Résolvez ce problème et renseignez le résultat :</label>
-
-<div class="math-row">
-
-<div class="operation-box">
-30 - 4
-</div>
-
-<span>Entrez votre réponse :</span>
-
-<input class="math-input" type="text" name="captcha">
-
-</div>
-
-
-<button class="submit-btn" type="submit">
-Se connecter
-</button>
-
-
-<p class="login-link">
-Vous avez déjà un compte ?
-<a href="#">Se connecter maintenant</a>
+<p>
+Déjà inscrit ?  
+<a href="connexion.php">Se connecter</a>
 </p>
 
 </form>
 
 </section>
-
-</main>
 
 </body>
 </html>
