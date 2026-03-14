@@ -1,5 +1,3 @@
-<!-- testtesttsetesetststs -->
-
 <?php
 session_start();
 ?>
