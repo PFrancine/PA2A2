@@ -1,33 +1,22 @@
 <?php
 session_start();
 
-/* connexion base */
-require_once "auth/connexion.php";
+// connexion à la base
+require_once __DIR__ . '/database.php'; // __DIR__ = chemin absolu du fichier courant
 
-/* récupérer 1 formation */
-$sqlFormation = "SELECT * FROM formation 
-WHERE statut='VALIDE' 
-ORDER BY date_formation 
-LIMIT 1";
-
+// récupérer 1 formation
+$sqlFormation = "SELECT * FROM formation WHERE statut='VALIDE' ORDER BY date_formation LIMIT 1";
 $formation = $pdo->query($sqlFormation)->fetch();
 
-/* récupérer 2 événements */
-$sqlEvenement = "SELECT * FROM evenement 
-ORDER BY date_evenement 
-LIMIT 2";
-
+// récupérer 2 événements
+$sqlEvenement = "SELECT * FROM evenement ORDER BY date_evenement LIMIT 2";
 $evenements = $pdo->query($sqlEvenement)->fetchAll();
 
-/* récupérer 4 annonces pour le forum */
-$sqlForum = "SELECT titre, date_publication 
-FROM annonce 
-ORDER BY date_publication DESC 
-LIMIT 4";
-
+// récupérer 4 annonces pour le forum
+$sqlForum = "SELECT titre, date_publication FROM annonce ORDER BY date_publication DESC LIMIT 4";
 $annonces = $pdo->query($sqlForum)->fetchAll();
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
