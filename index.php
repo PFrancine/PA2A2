@@ -148,7 +148,7 @@ if($formation): ?>
                 Apprenez à transformer des palettes en bois en meubles modernes et durables.
                 Formation animée par un artisan spécialisé en upcycling.
             </p>
-            <a href="#">En savoir plus</a>
+            <a href="auth/connexion.php">En savoir plus</a>
         </div>
 
         <!-- Événement 1 -->
@@ -160,7 +160,7 @@ if($formation): ?>
                 Venez participer à un atelier collectif pour transformer vos objets du quotidien
                 en créations originales et écologiques.
             </p>
-            <a href="#">En savoir plus</a>
+            <a href="auth/connexion.php">En savoir plus</a>
         </div>
 
         <!-- Événement 2 -->
@@ -172,7 +172,7 @@ if($formation): ?>
                 Découvrez les créations d'artisans et professionnels de l’upcycling lors de
                 notre marché mensuel.
             </p>
-            <a href="#">En savoir plus</a>
+            <a href="auth/connexion.php">En savoir plus</a>
         </div>
 
     </div>
