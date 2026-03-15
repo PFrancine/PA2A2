@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <meta charset="UTF-8">
 <title>Inscription</title>
 
-<link rel="stylesheet" href="style_inscription.css?v=999">
+<link rel="stylesheet" href="style_inscription.css">
 
 </head>
 
