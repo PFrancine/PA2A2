@@ -1,6 +1,6 @@
-/* ===============================
+/* 
    GLOBAL
-================================ */
+*/
 
 html,
 body {
@@ -20,9 +20,16 @@ body {
   min-height: 100vh;
 }
 
-/* ===============================
+.table-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: white;
+}
+
+/* 
    SIDEBAR
-================================ */
+*/
 
 .sidebar {
   width: 220px;
@@ -52,9 +59,21 @@ body {
   border-left: 4px solid white;
 }
 
-/* ===============================
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+  }
+
+  .col-md-10 {
+    margin-left: 0 !important;
+  }
+}
+
+/*
    LOGO
-================================ */
+*/
 
 .logo {
   text-align: center;
@@ -67,9 +86,9 @@ body {
   height: auto;
 }
 
-/* ===============================
+/* 
    TITRES
-================================ */
+*/
 
 .page-title {
   font-family: "Playfair Display", serif;
@@ -84,9 +103,9 @@ body {
   margin-bottom: 20px;
 }
 
-/* ===============================
+/* 
    DASHBOARD CARDS
-================================ */
+*/
 .card {
   background: rgba(255, 255, 255, 0.95);
 }
@@ -101,9 +120,9 @@ body {
   transform: scale(1.05);
 }
 
-/* ===============================
+/* 
    NOTIFICATIONS
-================================ */
+*/
 
 .notification-box {
   background: white;
@@ -111,9 +130,9 @@ body {
   padding: 15px;
 }
 
-/* ===============================
+/* 
    FORMULAIRE
-================================ */
+*/
 
 .form-container {
   max-width: 800px;
@@ -133,9 +152,9 @@ body {
   border-color: #228b22;
 }
 
-/* ===============================
+/* 
    BOUTONS
-================================ */
+*/
 
 .btn-success {
   background: #228b22;
@@ -146,9 +165,9 @@ body {
   background: #1a6e1a;
 }
 
-/* ===============================
+/* 
    CATEGORIES
-================================ */
+*/
 
 .categorie-card {
   display: block;
@@ -182,7 +201,9 @@ body {
   transform: scale(1.05);
 }
 
-/* catégorie sélectionnée */
+/* 
+catégorie sélectionnée 
+*/
 
 .categorie-card:has(input:checked) {
   background: #228b22;
@@ -198,10 +219,10 @@ body {
   font-weight: bold;
 }
 
-/* ===============================
+/* 
    image annnonce (photo des objets)
-================================ */
-/* zone upload */
+*/
+
 .upload-box {
   border: 2px dashed #228b22;
   border-radius: 10px;
@@ -257,9 +278,9 @@ body {
   cursor: pointer;
 }
 
-/* ===============================
+/*
    Déconnexion
-================================ */
+*/
 .logout-link {
   position: absolute;
   bottom: 20px;
@@ -272,4 +293,47 @@ body {
 
 .logout-link:hover {
   background: #006400;
+}
+
+.annonces-link {
+  text-decoration: none;
+  color: #228b22;
+  font-weight: 600;
+}
+
+.annonces-link:hover {
+  text-decoration: underline;
+}
+
+.annonces-btn {
+  background: #228b22;
+  border: 1px solid #228b22;
+  color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  font-weight: 500;
+}
+
+.annonces-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a6e1a;
+}
+
+/* cartes annonces */
+
+.annonce-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+  max-width: 260px;
+  margin: auto;
+}
+
+.annonce-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.annonce-image {
+  height: 160px;
+  object-fit: cover;
 }
