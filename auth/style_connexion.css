@@ -1,15 +1,34 @@
+/* =========================
+RESET
+========================= */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#c8d7bf;
+
+font-family:'Poppins', sans-serif;
+
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+
+background:
+linear-gradient(rgba(20,80,40,0.75), rgba(20,80,40,0.75)),
+url("../images/recyclage.jpeg") center/cover no-repeat;
+
+color:#333;
+
 }
 
-/* HEADER */
+
+/* =========================
+HEADER
+========================= */
 
 header{
 
@@ -17,11 +36,11 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 
-background:#a4c68f;
+padding:15px 50px;
 
-padding:15px 40px;
+background:white;
 
-border:2px solid #000;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
 
 }
 
@@ -31,48 +50,84 @@ width:60px;
 
 header input{
 
-width:500px;
+width:300px;
 
-padding:12px;
+padding:10px 15px;
 
-border-radius:25px;
+border-radius:30px;
 
-border:2px solid black;
+border:1px solid #ddd;
 
-background:#dbe8d1;
+outline:none;
+
+}
+
+header input:focus{
+
+border-color:#2ca34a;
+
+box-shadow:0 0 0 3px rgba(44,163,74,0.15);
 
 }
 
 .icons{
 
 display:flex;
-gap:30px;
-font-size:24px;
+gap:20px;
+
+font-size:22px;
 
 }
 
 
-/* FORMULAIRE */
+/* =========================
+LOGIN CONTAINER
+========================= */
 
 .login-container{
 
-width:450px;
+width:420px;
 
 margin:80px auto;
 
-background:#eeeeee;
+padding:45px;
 
-padding:40px;
+background:rgba(255,255,255,0.95);
 
-border-radius:25px;
+border-radius:20px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,0.25);
+
+backdrop-filter:blur(6px);
+
+animation:fadeIn 0.8s ease;
 
 }
+
+
+/* =========================
+TITRE
+========================= */
 
 .login-container h2{
 
-margin-bottom:25px;
+font-size:30px;
+
+text-align:center;
+
+margin-bottom:30px;
+
+color:#1e7d3b;
+
+font-weight:600;
 
 }
+
+
+/* =========================
+LABEL
+========================= */
 
 .login-container label{
 
@@ -80,53 +135,96 @@ display:block;
 
 margin-top:15px;
 
-font-weight:bold;
+margin-bottom:6px;
+
+font-size:14px;
+
+font-weight:500;
+
+color:#444;
 
 }
+
+
+/* =========================
+INPUTS
+========================= */
 
 .login-container input{
 
 width:100%;
 
-padding:12px;
+padding:13px 15px;
 
-margin-top:5px;
+border-radius:10px;
 
-border-radius:25px;
+border:1px solid #ddd;
 
-border:2px solid black;
+background:#fafafa;
 
-background:#dbe8d1;
+font-size:14px;
+
+transition:all 0.25s ease;
 
 }
+
+.login-container input:focus{
+
+outline:none;
+
+border-color:#2ca34a;
+
+box-shadow:0 0 0 3px rgba(44,163,74,0.15);
+
+background:white;
+
+}
+
+
+/* =========================
+BOUTON
+========================= */
 
 button{
 
 width:100%;
 
-margin-top:25px;
+margin-top:30px;
 
 padding:14px;
 
 border:none;
 
-border-radius:30px;
-
-background:#0a7a1e;
-
-color:white;
+border-radius:10px;
 
 font-size:16px;
 
+font-weight:600;
+
 cursor:pointer;
+
+color:white;
+
+background:linear-gradient(135deg,#2ca34a,#1c7d35);
+
+transition:all 0.25s ease;
 
 }
 
 button:hover{
 
-background:#065d16;
+transform:translateY(-2px);
+
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+
+background:linear-gradient(135deg,#24903f,#16632a);
 
 }
+
+
+/* =========================
+LIENS
+========================= */
 
 .links{
 
@@ -134,22 +232,76 @@ margin-top:15px;
 
 text-align:center;
 
+font-size:14px;
+
 }
 
 .links a{
 
-color:#0a7a1e;
+color:#2ca34a;
 
 text-decoration:none;
 
-font-weight:bold;
+font-weight:600;
 
 }
 
+.links a:hover{
+text-decoration:underline;
+}
+
+
+/* =========================
+ERREUR
+========================= */
+
 .error{
 
-color:red;
+color:#e53935;
+
+text-align:center;
 
 margin-bottom:15px;
+
+font-size:14px;
+
+}
+
+
+/* =========================
+ANIMATION
+========================= */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:600px){
+
+.login-container{
+
+width:90%;
+padding:35px;
+
+}
+
+header input{
+display:none;
+}
 
 }
