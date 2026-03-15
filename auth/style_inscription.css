@@ -1,73 +1,79 @@
-/* RESET */
+/* ==============================
+RESET
+============================== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#c9d9c0;
-}
-
-/* HEADER */
-
-header{
+font-family: 'Poppins', sans-serif;
+min-height:100vh;
 display:flex;
 align-items:center;
-justify-content:space-between;
-padding:15px 40px;
-background:#9fc48a;
-border:1px solid #333;
+justify-content:center;
+
+background:
+linear-gradient(rgba(20,80,40,0.75), rgba(20,80,40,0.75)),
+url("../images/recyclage.jpeg") center/cover no-repeat;
+
+color:#333;
 }
 
-.logo{
-width:70px;
-}
 
-header input{
-width:500px;
-padding:12px;
-border-radius:30px;
-border:2px solid #333;
-background:#dbe8d1;
-}
-
-.icons{
-display:flex;
-gap:30px;
-font-size:25px;
-align-items:center;
-}
-
-/* CONTAINER */
+/* ==============================
+CONTAINER
+============================== */
 
 .inscription-container{
 
-width:700px;
-margin:60px auto;
-background:#eeeeee;
-padding:40px;
-border-radius:25px;
+width:480px;
+padding:50px;
+
+background:rgba(255,255,255,0.96);
+
+border-radius:20px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,0.25);
+
+backdrop-filter: blur(6px);
+
+animation:fadeIn 0.8s ease;
 
 }
 
-/* TITRE */
+
+/* ==============================
+TITRE
+============================== */
 
 .inscription-container h2{
-margin-bottom:25px;
-font-size:28px;
+
+font-size:32px;
+font-weight:600;
+text-align:center;
+margin-bottom:30px;
+color:#1e7d3b;
+
 }
 
-/* ROW PRENOM NOM */
+
+/* ==============================
+ROW PRENOM NOM
+============================== */
 
 .row{
 display:flex;
-gap:20px;
+gap:15px;
 }
 
-/* INPUT GROUP */
+
+/* ==============================
+INPUT GROUP
+============================== */
 
 .input-group{
 flex:1;
@@ -75,94 +81,171 @@ display:flex;
 flex-direction:column;
 }
 
-/* LABEL */
+
+/* ==============================
+LABEL
+============================== */
 
 label{
-margin-top:15px;
-font-weight:bold;
+
+font-size:14px;
+margin-top:18px;
+margin-bottom:6px;
+
+color:#444;
+font-weight:500;
+
 }
 
-/* INPUT */
 
-input, select{
+/* ==============================
+INPUTS
+============================== */
+
+input,
+select{
 
 width:100%;
-padding:12px;
-margin-top:5px;
+padding:13px 15px;
 
-border-radius:25px;
-border:2px solid #333;
+border-radius:10px;
 
-background:#dbe8d1;
+border:1px solid #dcdcdc;
+
+font-size:14px;
+
+background:#fafafa;
+
+transition:all 0.25s ease;
+
+}
+
+
+/* focus inputs */
+
+input:focus,
+select:focus{
+
+outline:none;
+
+border-color:#2ca34a;
+
+box-shadow:0 0 0 3px rgba(44,163,74,0.15);
+
+background:white;
+
+}
+
+
+/* ==============================
+BOUTON
+============================== */
+
+button{
+
+width:100%;
+
+margin-top:30px;
+
+padding:14px;
+
+border:none;
+
+border-radius:10px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+background:linear-gradient(135deg,#2ca34a,#1c7d35);
+
+color:white;
+
+transition:all 0.25s ease;
+
+}
+
+
+/* hover bouton */
+
+button:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+
+background:linear-gradient(135deg,#24903f,#16632a);
+
+}
+
+
+/* ==============================
+MESSAGE ERREUR
+============================== */
+
+.inscription-container p{
+
+margin-top:15px;
+text-align:center;
 
 font-size:14px;
 
 }
 
-/* TEXTE INFO */
 
-small{
-color:#666;
-}
-
-/* CAPTCHA */
-
-.captcha{
-display:flex;
-align-items:center;
-gap:15px;
-margin-top:10px;
-}
-
-.captcha span{
-
-padding:10px 20px;
-background:#dbe8d1;
-border-radius:25px;
-border:2px solid #333;
-font-weight:bold;
-
-}
-
-/* BOUTON */
-
-button{
-
-width:100%;
-margin-top:25px;
-
-padding:14px;
-
-background:#0a7a1e;
-color:white;
-
-border:none;
-border-radius:30px;
-
-font-size:16px;
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-button:hover{
-background:#065a16;
-}
-
-/* TEXTE BAS */
-
-.inscription-container p{
-margin-top:20px;
-text-align:center;
-}
+/* ==============================
+LIEN CONNEXION
+============================== */
 
 .inscription-container a{
-color:#0a7a1e;
+
+color:#2ca34a;
 text-decoration:none;
-font-weight:bold;
+font-weight:600;
+
 }
 
 .inscription-container a:hover{
 text-decoration:underline;
+}
+
+
+/* ==============================
+ANIMATION
+============================== */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+/* ==============================
+RESPONSIVE
+============================== */
+
+@media(max-width:600px){
+
+.inscription-container{
+
+width:90%;
+padding:35px;
+
+}
+
+.row{
+flex-direction:column;
+}
+
 }
