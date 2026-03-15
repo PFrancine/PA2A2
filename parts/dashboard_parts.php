@@ -1,9 +1,19 @@
+<?php
+session_start();
+require_once "../database.php";
+
+if(!isset($_SESSION['id_utilisateur'])){
+header("Location: ../auth/connexion.php");
+exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <title>Espace Particulier - UpcycleConnect</title>
 <?php include("header_parts.php"); ?>
+
 
 </head>
 
@@ -13,26 +23,14 @@
         <div class="row">
 
             <!-- Sidebar -->
-            <div class="col-md-2 sidebar">
-                <div class="logo text-center mb-4">
-                    <img src="../images/logo_upcycle.png" alt="Logo Upcycle">
-                </div>
-                <a href="dashboard_parts.php">Dashboard</a>
-                <a href="deposer_annonce.php">Déposer une annonce</a>
-                <a href="#">Dépôt conteneur</a>
-                <a href="#">Formations / Événements</a>
-                <a href="#">Mon planning</a>
-                <a href="#">Conseils</a>
-                <a href="#">Upcycling Score</a>
-                <a href="#">Notifications</a>
-                <a href="#">Mon profil</a>
-
-            </div>
-
+                <?php include("sidebar_parts.php"); ?>
             <!-- Main content -->
             <div class="col-md-10 p-4">
-
-                <h2 class="dashboard-title">Bienvenue sur votre espace particulier</h2>
+                <?php
+                    $prenom = $_SESSION['prenom'];
+                ?>
+                <h2 class="dashboard-title">Heyy <?php echo $prenom; ?> 👋 <br>
+                 Bienvenue sur ton espace particulier  </h2>
                 <p>Retrouvez ici vos activités et vos actions rapides.</p>
 
                 <!-- Actions rapides -->
@@ -43,7 +41,7 @@
                         <div class="card card-action p-3 text-center shadow">
                             <h5>Déposer un objet</h5>
                             <p>Publier une annonce</p>
-                            <button class="btn btn-success">Créer</button>
+                            <a href="deposer_annonce.php" class="btn btn-success">Créer</a>
                         </div>
                     </div>
 

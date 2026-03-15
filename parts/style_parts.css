@@ -1,31 +1,94 @@
+/* ===============================
+   GLOBAL
+================================ */
+
+html,
 body {
-  background: #fefee2;
+  height: 100%;
+}
+
+body {
+  background-image: url("../images/background5.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Montserrat", sans-serif;
 }
 
+.container-fluid {
+  min-height: 100vh;
+}
+
+/* ===============================
+   SIDEBAR
+================================ */
+
 .sidebar {
-  height: 100vh;
   width: 220px;
+  min-height: 100vh;
   background: #228b22;
   color: white;
   padding-top: 20px;
   overflow: hidden;
+  position: relative;
 }
+
 .sidebar a {
   color: white;
   display: block;
   padding: 12px;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 .sidebar a:hover {
   background: #008000;
 }
 
+.sidebar a.active {
+  background: #006400;
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+/* ===============================
+   LOGO
+================================ */
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+}
+
+/* ===============================
+   TITRES
+================================ */
+
 .page-title {
   font-family: "Playfair Display", serif;
   font-size: 32px;
   color: #228b22;
+}
+
+.hello-user {
+  font-family: "Pacifico", cursive;
+  font-size: 36px;
+  color: #228b22;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   DASHBOARD CARDS
+================================ */
+.card {
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .card-action {
@@ -38,18 +101,175 @@ body {
   transform: scale(1.05);
 }
 
+/* ===============================
+   NOTIFICATIONS
+================================ */
+
 .notification-box {
   background: white;
   border-radius: 10px;
   padding: 15px;
 }
-.logo {
-  text-align: center;
-  margin-bottom: 20px;
+
+/* ===============================
+   FORMULAIRE
+================================ */
+
+.form-container {
+  max-width: 800px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px;
 }
 
-.logo img {
-  max-width: 120px;
+.form-label {
+  font-weight: 600;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(34, 139, 34, 0.5);
+  border-color: #228b22;
+}
+
+/* ===============================
+   BOUTONS
+================================ */
+
+.btn-success {
+  background: #228b22;
+  border: none;
+}
+
+.btn-success:hover {
+  background: #1a6e1a;
+}
+
+/* ===============================
+   CATEGORIES
+================================ */
+
+.categorie-card {
+  display: block;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  text-align: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: white;
+  height: 70px;
+}
+
+.categorie-card i {
+  font-size: 18px;
+  color: #228b22;
+  margin-bottom: 4px;
+  display: block;
+}
+.categorie-card p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.categorie-card input {
+  display: none;
+}
+
+.categorie-card:hover {
+  border-color: #228b22;
+  transform: scale(1.05);
+}
+
+/* catégorie sélectionnée */
+
+.categorie-card:has(input:checked) {
+  background: #228b22;
+  border-color: #228b22;
+  color: white;
+}
+
+.categorie-card:has(input:checked) i {
+  color: white;
+}
+
+.categorie-card:has(input:checked) p {
+  font-weight: bold;
+}
+
+/* ===============================
+   image annnonce (photo des objets)
+================================ */
+/* zone upload */
+.upload-box {
+  border: 2px dashed #228b22;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  color: #228b22;
+  transition: 0.2s;
+}
+
+.upload-box:hover {
+  background: #f0fff0;
+}
+
+.upload-box i {
+  font-size: 30px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* preview images */
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.preview-image {
+  position: relative;
+}
+
+.preview-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* bouton supprimer image */
+.remove-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ===============================
+   Déconnexion
+================================ */
+.logout-link {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
   width: 100%;
-  height: auto;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.logout-link:hover {
+  background: #006400;
 }
