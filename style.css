@@ -21,15 +21,9 @@ header{
     border-bottom:1px solid #ddd;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center; 
-    height: 80px; /* La hauteur de votre barre de menu par exemple */
-}
-
 .logo {
-    width: 60px; /* Ici, on réduit enfin la taille */
-    height: auto;
+    width: 60px !important;
+    height: auto !important;
 }
 
 nav a{
