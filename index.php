@@ -101,12 +101,12 @@ CONSEILS
     <h2>Conseils & Astuces</h2>
     <div class="cards">
         <div class="card">
-            <img src="images/bocal.jpg" alt="Recycler un bocal">
+            <img src="images/bocal.png" alt="Recycler un bocal">
             <h3>Recycler un bocal en verre</h3>
             <p>Transformez un bocal en pot de rangement pour vos épices ou vos vis.</p>
         </div>
         <div class="card">
-            <img src="images/chaise.jpg" alt="Seconde vie chaise">
+            <img src="images/chaise.png" alt="Seconde vie chaise">
             <h3>Donner une seconde vie à une chaise</h3>
             <p>Une chaise cassée peut devenir un support pour plantes.</p>
         </div>
