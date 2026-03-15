@@ -210,7 +210,7 @@ En savoir plus
 
 <h2>Déjà membre ?</h2>
 
-<form action="auth/login.php" method="POST">
+<form action="auth/connexion.php" method="POST">
 
 <label>Email</label>
 <input type="email" name="email" required>
