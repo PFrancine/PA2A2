@@ -50,7 +50,7 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
 
 <?php else: ?>
 
-<a href="auth/login.php">👤</a>
+<a href="auth/connexion.php">👤</a>
 
 <?php endif; ?>
 
