@@ -68,7 +68,7 @@ HERO
     <div class="hero-text">
         <h1>Du passé au renouveau,<br>créons un monde plus beau !</h1>
         <p>Rejoignez notre communauté d’upcycling et donnez une seconde vie aux objets.</p>
-        <a href="#catalogue" class="btn">Découvrir</a>
+        <a href="auth/connexion.php" class="btn">Découvrir</a>
     </div>
     <div class="hero-img">
         <img src="images/recyclage.jpeg" alt="Upcycling">
