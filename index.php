@@ -120,14 +120,64 @@ CATALOGUE
     <h2>Catalogue (Formations / Événements)</h2>
     <div class="cards">
 
-        <?php if($formation): ?>
+
+
+<?php 
+/* formation dynamique
+if($formation): ?>
         <div class="card">
             <h3>Formation</h3>
             <h4><?= $formation['titre'] ?></h4>
             <p><?= substr($formation['description'],0,100) ?>...</p>
             <a href="catalogue/formation.php?id=<?= $formation['id_formation'] ?>">En savoir plus</a>
         </div>
-        <?php endif; ?>
+        <?php endif;
+*/ ?>
+
+    <section class="catalogue" id="catalogue">
+    <h2>Catalogue (Formations / Événements)</h2>
+
+    <div class="cards">
+
+        <!-- Formation -->
+        <div class="card">
+            <img src="images/formation_meuble.jpg" alt="Formation meuble">
+            <h3>Formation</h3>
+            <h4>Créer un meuble à partir de palettes</h4>
+            <p>
+                Apprenez à transformer des palettes en bois en meubles modernes et durables.
+                Formation animée par un artisan spécialisé en upcycling.
+            </p>
+            <a href="#">En savoir plus</a>
+        </div>
+
+        <!-- Événement 1 -->
+        <div class="card">
+            <img src="images/event_recyclage.jpg" alt="Atelier recyclage">
+            <h3>Événement</h3>
+            <h4>Atelier créatif recyclage</h4>
+            <p>
+                Venez participer à un atelier collectif pour transformer vos objets du quotidien
+                en créations originales et écologiques.
+            </p>
+            <a href="#">En savoir plus</a>
+        </div>
+
+        <!-- Événement 2 -->
+        <div class="card">
+            <img src="images/event_marche.jpg" alt="Marché upcycling">
+            <h3>Événement</h3>
+            <h4>Marché des créateurs Upcycle</h4>
+            <p>
+                Découvrez les créations d'artisans et professionnels de l’upcycling lors de
+                notre marché mensuel.
+            </p>
+            <a href="#">En savoir plus</a>
+        </div>
+
+    </div>
+</section>
+    
 
         <?php foreach($evenements as $event): ?>
         <div class="card">
