@@ -1,266 +1,84 @@
-/* RESET */
+/* =========================
+RESET
+========================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;color:#333;line-height:1.6;background:#f5f7f6;}
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+/* =========================
+HEADER PREMIUM
+========================= */
+header.navbar{
+    display:flex;justify-content:space-between;align-items:center;padding:15px 50px;background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000;
 }
+.nav-left{display:flex;align-items:center;gap:20px;}
+.logo{width:60px;}
+.brand{font-weight:700;font-size:20px;color:#2ca34a;}
+nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:500;transition:0.3s;}
+nav a:hover{color:#1c7c35;}
+.nav-search{flex:1;display:flex;justify-content:center;margin:0 30px;}
+.nav-search input{width:300px;padding:10px 15px;border-radius:30px;border:1px solid #ddd;outline:none;transition:0.25s;}
+.nav-search input:focus{border-color:#2ca34a;box-shadow:0 0 0 3px rgba(44,163,74,0.15);}
+.nav-right{display:flex;align-items:center;gap:20px;position:relative;}
+.profile{position:relative;cursor:pointer;font-size:22px;}
+.profile .dropdown{display:none;position:absolute;top:35px;right:0;background:white;border:1px solid #ddd;border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);min-width:150px;overflow:hidden;z-index:1000;}
+.profile:hover .dropdown{display:block;}
+.profile .dropdown a{display:block;padding:10px 15px;color:#333;text-decoration:none;transition:0.3s;}
+.profile .dropdown a:hover{background:#2ca34a;color:white;}
 
+/* =========================
+HERO PREMIUM
+========================= */
+.hero{display:flex;align-items:center;justify-content:space-between;gap:50px;padding:80px 10%;background:#e8f5e9;border-radius:15px;margin:20px;}
+.hero-text h1{font-size:48px;color:#2c9c35;font-weight:800;margin-bottom:20px;}
+.hero-text p{font-size:18px;margin-bottom:20px;}
+.hero-img img{width:500px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.15);}
+.btn{padding:15px 30px;background:#2ca34a;color:white;border-radius:50px;text-decoration:none;font-weight:700;transition:0.3s;display:inline-block;}
+.btn:hover{background:#1c7d35;transform:scale(1.05);}
 
-/* BODY */
+/* =========================
+SECTIONS
+========================= */
+section{padding:80px 10%;}
+h2{font-size:36px;color:#2ca34a;margin-bottom:40px;text-align:center;}
 
-body{
-    background:url("images/recyclage.jpeg") no-repeat center center/cover;
-    min-height:100vh;
-    color:#333;
-}
+/* =========================
+CARDS
+========================= */
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}
+.card{background:white;border-radius:15px;overflow:hidden;width:320px;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:0.3s;}
+.card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(0,0,0,0.15);}
+.card img{width:100%;height:200px;object-fit:cover;}
+.card h3{background:#2ca34a;color:white;padding:15px;font-size:18px;}
+.card h4{padding:10px 15px;color:#2ca34a;}
+.card p{padding:0 15px 15px 15px;}
+.card a{display:inline-block;margin:10px 15px 15px;background:#2ca34a;color:white;padding:10px 20px;border-radius:25px;text-decoration:none;font-weight:600;transition:0.3s;}
+.card a:hover{background:#1c7d35;transform:scale(1.05);}
 
+/* =========================
+CONNEXION RAPIDE
+========================= */
+.connexion{max-width:450px;margin:50px auto;padding:40px;background:white;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.1);}
+.connexion h2{color:#2ca34a;margin-bottom:20px;}
+.connexion input{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ccc;}
 
-/* HEADER */
+/* =========================
+FORUM
+========================= */
+.forum{background:#f5f7f6;padding:50px 10%;text-align:center;border-radius:15px;}
+.post{background:white;padding:20px;margin:15px auto;width:70%;display:flex;justify-content:space-between;border-radius:15px;box-shadow:0 8px 30px rgba(0,0,0,0.08);}
+.post span{color:#2ca34a;font-weight:700;}
 
-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:15px 40px;
-    background:white;
-    border-radius:20px;
-    margin:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
+/* =========================
+FOOTER PREMIUM
+========================= */
+footer{background:#2ca34a;color:white;padding:50px 10%;text-align:center;border-radius:15px;margin-top:50px;}
+footer h3{font-size:20px;margin-bottom:20px;}
+footer p{margin:5px 0;}
 
-.logo{
-    width:60px;
-}
-
-header input{
-    padding:10px 15px;
-    border-radius:20px;
-    border:1px solid #ccc;
-    width:250px;
-}
-
-.icons{
-    display:flex;
-    gap:15px;
-    font-size:20px;
-}
-
-.icons a{
-    text-decoration:none;
-}
-
-
-/* SECTIONS */
-
-section{
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(4px);
-    border-radius:20px;
-    margin:40px;
-    padding:40px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-
-/* HERO */
-
-.hero{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:40px;
-}
-
-.hero-text h1{
-    font-size:48px;
-    color:#1f6b2c;
-    line-height:1.3;
-}
-
-.hero-img img{
-    width:450px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-
-/* PRESENTATION */
-
-.presentation{
-    text-align:center;
-}
-
-.presentation h2{
-    margin-bottom:20px;
-    color:#1f6b2c;
-}
-
-.presentation p{
-    margin:10px auto;
-    max-width:800px;
-    line-height:1.6;
-}
-
-
-/* CONSEILS */
-
-.conseils{
-    text-align:center;
-}
-
-.cards{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:30px;
-    margin-top:30px;
-}
-
-
-/* CARDS */
-
-.card{
-    background:white;
-    width:300px;
-    border-radius:16px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    overflow:hidden;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 20px 40px rgba(0,0,0,0.15);
-}
-
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.card h3{
-    background:#2e8b3c;
-    color:white;
-    padding:12px;
-    font-size:18px;
-}
-
-.card h4{
-    padding:10px 15px;
-    color:#2e8b3c;
-}
-
-.card p{
-    padding:0 15px 15px 15px;
-    line-height:1.5;
-}
-
-
-/* BOUTONS */
-
-.btn,
-.catalogue a,
-.connexion button{
-
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 25px;
-    background:#2e8b3c;
-    color:white;
-    text-decoration:none;
-    border:none;
-    border-radius:12px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.btn:hover,
-.catalogue a:hover,
-.connexion button:hover{
-
-    background:#1f6b2c;
-    transform:scale(1.05);
-}
-
-
-/* CATALOGUE */
-
-.catalogue{
-    text-align:center;
-}
-
-
-/* CONNEXION */
-
-.connexion{
-    width:400px;
-    margin:60px auto;
-}
-
-.connexion h2{
-    margin-bottom:20px;
-    color:#1f6b2c;
-}
-
-.connexion label{
-    display:block;
-    margin-top:10px;
-}
-
-.connexion input{
-    width:100%;
-    padding:10px;
-    margin-top:5px;
-    border-radius:10px;
-    border:1px solid #ccc;
-}
-
-
-/* FORUM */
-
-.forum{
-    text-align:center;
-}
-
-.forum h3{
-    margin-top:20px;
-}
-
-.post{
-    background:white;
-    padding:15px;
-    margin:10px auto;
-    width:70%;
-    display:flex;
-    justify-content:space-between;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.post span{
-    font-weight:bold;
-    color:#2e8b3c;
-}
-
-
-/* FOOTER */
-
-footer{
-    background:white;
-    border-radius:20px;
-    margin:40px;
-    padding:30px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-footer h3{
-    color:#2e8b3c;
-    margin-bottom:15px;
-}
-
-footer p{
-    margin:5px 0;
-}
+/* =========================
+RESPONSIVE
+========================= */
+@media(max-width:1024px){.hero{flex-direction:column;text-align:center;}.hero-img img{width:100%;}}
+@media(max-width:768px){.cards{flex-direction:column;align-items:center;}.post{width:90%;}.nav-search{display:none;}}
