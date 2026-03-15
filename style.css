@@ -21,10 +21,11 @@ header{
     border-bottom:1px solid #ddd;
 }
 
-.logo img{
-    display: flex;
-    align-items: center; /* Centre verticalement */
+img.logo {
+    width: 60px;     /* C'est cette ligne qui manquait pour réduire la taille ! */
+    height: auto;
     padding: 10px;
+    display: block;
 }
 
 nav a{
