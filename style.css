@@ -1,33 +1,36 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
-
-
-/* BODY */
 
 body{
-    background:url("images/background1.jpg") no-repeat center center/cover;
-    min-height:100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(rgba(240,248,240,0.9), rgba(240,248,240,0.9)),
+    url("images/recyclage.jpeg") center/cover no-repeat;
     color:#333;
+    line-height:1.6;
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:15px 40px;
+    padding:15px 50px;
     background:white;
-    border-radius:20px;
-    margin:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo{
@@ -35,10 +38,11 @@ header{
 }
 
 header input{
+    width:300px;
     padding:10px 15px;
-    border-radius:20px;
-    border:1px solid #ccc;
-    width:250px;
+    border-radius:25px;
+    border:1px solid #ddd;
+    outline:none;
 }
 
 .icons{
@@ -47,24 +51,19 @@ header input{
     font-size:20px;
 }
 
-.icons a{
-    text-decoration:none;
-}
 
-
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
 
 section{
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(4px);
-    border-radius:20px;
-    margin:40px;
-    padding:40px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    padding:80px 10%;
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     display:flex;
@@ -75,36 +74,40 @@ section{
 
 .hero-text h1{
     font-size:48px;
-    color:#1f6b2c;
-    line-height:1.3;
+    color:#1c7c35;
+    font-weight:700;
 }
 
 .hero-img img{
     width:450px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
 
-/* PRESENTATION */
+/* =========================
+   PRESENTATION
+========================= */
 
 .presentation{
     text-align:center;
 }
 
 .presentation h2{
+    font-size:32px;
     margin-bottom:20px;
-    color:#1f6b2c;
+    color:#1c7c35;
 }
 
 .presentation p{
-    margin:10px auto;
     max-width:800px;
-    line-height:1.6;
+    margin:10px auto;
 }
 
 
-/* CONSEILS */
+/* =========================
+   CONSEILS
+========================= */
 
 .conseils{
     text-align:center;
@@ -113,26 +116,28 @@ section{
 .cards{
     display:flex;
     justify-content:center;
-    flex-wrap:wrap;
     gap:30px;
-    margin-top:30px;
+    flex-wrap:wrap;
+    margin-top:40px;
 }
 
 
-/* CARDS */
+/* =========================
+   CARD DESIGN
+========================= */
 
 .card{
     background:white;
-    width:300px;
-    border-radius:16px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    width:320px;
+    border-radius:12px;
     overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
     transition:0.3s;
 }
 
 .card:hover{
     transform:translateY(-6px);
-    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
 .card img{
@@ -142,7 +147,7 @@ section{
 }
 
 .card h3{
-    background:#2e8b3c;
+    background:#2c9c47;
     color:white;
     padding:12px;
     font-size:18px;
@@ -150,59 +155,74 @@ section{
 
 .card h4{
     padding:10px 15px;
-    color:#2e8b3c;
+    color:#2c9c47;
 }
 
 .card p{
     padding:0 15px 15px 15px;
-    line-height:1.5;
 }
 
 
-/* BOUTONS */
+/* =========================
+   BOUTONS
+========================= */
 
 .btn,
 .catalogue a,
 .connexion button{
 
     display:inline-block;
-    margin-top:15px;
     padding:12px 25px;
-    background:#2e8b3c;
+    background:#2c9c47;
     color:white;
-    text-decoration:none;
     border:none;
-    border-radius:12px;
-    font-weight:bold;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:600;
     transition:0.3s;
+    margin-top:15px;
 }
 
 .btn:hover,
 .catalogue a:hover,
 .connexion button:hover{
 
-    background:#1f6b2c;
+    background:#1c7c35;
     transform:scale(1.05);
 }
 
 
-/* CATALOGUE */
+/* =========================
+   CATALOGUE
+========================= */
 
 .catalogue{
     text-align:center;
 }
 
+.catalogue h2{
+    font-size:30px;
+    color:#1c7c35;
+    margin-bottom:30px;
+}
 
-/* CONNEXION */
+
+/* =========================
+   CONNEXION
+========================= */
 
 .connexion{
-    width:400px;
-    margin:60px auto;
+    background:white;
+    max-width:420px;
+    margin:50px auto;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
 }
 
 .connexion h2{
     margin-bottom:20px;
-    color:#1f6b2c;
+    color:#1c7c35;
 }
 
 .connexion label{
@@ -214,19 +234,21 @@ section{
     width:100%;
     padding:10px;
     margin-top:5px;
-    border-radius:10px;
+    border-radius:8px;
     border:1px solid #ccc;
 }
 
 
-/* FORUM */
+/* =========================
+   FORUM
+========================= */
 
 .forum{
     text-align:center;
 }
 
-.forum h3{
-    margin-top:20px;
+.forum h2{
+    color:#1c7c35;
 }
 
 .post{
@@ -236,31 +258,62 @@ section{
     width:70%;
     display:flex;
     justify-content:space-between;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-radius:8px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
 .post span{
+    color:#2c9c47;
     font-weight:bold;
-    color:#2e8b3c;
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    background:white;
-    border-radius:20px;
-    margin:40px;
-    padding:30px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    background:#1c7c35;
+    color:white;
+    padding:40px 10%;
+    margin-top:50px;
 }
 
 footer h3{
-    color:#2e8b3c;
     margin-bottom:15px;
 }
 
 footer p{
     margin:5px 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-img img{
+    width:100%;
+}
+
+.cards{
+    flex-direction:column;
+    align-items:center;
+}
+
+.post{
+    width:90%;
+}
+
+header input{
+    width:180px;
+}
+
 }
