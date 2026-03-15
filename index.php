@@ -20,7 +20,7 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UpcycleConnect - Accueil</title>
+<title>UpcycleConnect - Accueil Premium</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -62,51 +62,49 @@ HEADER PREMIUM
 </header>
 
 <!-- =========================
-HERO
+HERO PREMIUM
 ========================= -->
 <section class="hero">
-    <div class="hero-text">
-        <h1>Du passé au renouveau,<br>créons un monde plus beau !</h1>
-        <p>Rejoignez notre communauté d’upcycling et donnez une seconde vie aux objets.</p>
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <h1>Du passé au renouveau,<br>réinventons le luxe durable</h1>
+        <p>UpcycleConnect réunit artisans et passionnés autour d'initiatives créatives et responsables.</p>
         <a href="#catalogue" class="btn">Découvrir</a>
     </div>
-    <div class="hero-img">
-        <img src="images/recyclage.jpeg" alt="Upcycling">
-    </div>
 </section>
 
 <!-- =========================
-PRESENTATION
+PRESENTATION PREMIUM
 ========================= -->
 <section class="presentation" id="presentation">
-    <h2>Découvrez UpCycle</h2>
-    <p>Nous réunissons particuliers, artisans et entreprises pour valoriser les matériaux et réduire les déchets.</p>
+    <h2>Pourquoi UpCycleConnect ?</h2>
+    <p>Nous donnons une seconde vie aux objets avec un design raffiné et une approche responsable. Notre communauté crée un impact positif tout en valorisant l’esthétique et la qualité.</p>
 </section>
 
 <!-- =========================
-CONSEILS
+CONSEILS PREMIUM
 ========================= -->
 <section class="conseils" id="conseils">
     <h2>Conseils & Astuces</h2>
     <div class="cards">
         <div class="card">
             <img src="images/bocal.jpg" alt="Recycler un bocal">
-            <h3>Recycler un bocal en verre</h3>
-            <p>Transformez un bocal en pot de rangement pour vos épices ou vos vis.</p>
+            <h3>Recycler un bocal</h3>
+            <p>Transformez un bocal en pot élégant pour vos épices ou objets décoratifs.</p>
         </div>
         <div class="card">
             <img src="images/chaise.jpg" alt="Seconde vie chaise">
-            <h3>Donner une seconde vie à une chaise</h3>
-            <p>Une chaise cassée peut devenir un support pour plantes.</p>
+            <h3>Redonner vie à une chaise</h3>
+            <p>Une chaise cassée peut devenir un support design pour plantes ou objets déco.</p>
         </div>
     </div>
 </section>
 
 <!-- =========================
-CATALOGUE
+CATALOGUE PREMIUM
 ========================= -->
 <section class="catalogue" id="catalogue">
-    <h2>Catalogue (Formations / Événements)</h2>
+    <h2>Catalogue Sélection</h2>
     <div class="cards">
 
         <?php if($formation): ?>
@@ -131,7 +129,7 @@ CATALOGUE
 </section>
 
 <!-- =========================
-CONNEXION RAPIDE
+CONNEXION RAPIDE PREMIUM
 ========================= -->
 <?php if(!isset($_SESSION['id_utilisateur'])): ?>
 <section class="connexion">
@@ -148,19 +146,16 @@ CONNEXION RAPIDE
 <?php endif; ?>
 
 <!-- =========================
-FORUM
+FORUM PREMIUM
 ========================= -->
 <section class="forum">
-    <h2>Forum</h2>
-    <h3>Actualités :</h3>
+    <h2>Forum & Actualités</h2>
     <?php foreach($annonces as $annonce): ?>
     <div class="post">
         <p><?= $annonce['titre'] ?></p>
         <span><?= date('d M Y', strtotime($annonce['date_publication'])) ?></span>
     </div>
     <?php endforeach; ?>
-    <h3>Question du jour</h3>
-    <p>Que peut-on faire avec des bouteilles en verre recyclées ?</p>
     <a href="forum.php" class="btn">Accéder au Forum</a>
 </section>
 
@@ -172,6 +167,11 @@ FOOTER PREMIUM
         <h3>UpcycleConnect</h3>
         <p>174 rue La Fayette, 75010 Paris</p>
         <p>Email : contact@upcycleconnect.fr</p>
+        <div class="social-icons">
+            <a href="#">🐦</a>
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+        </div>
         <p>Hébergeur : AWS</p>
     </div>
 </footer>
