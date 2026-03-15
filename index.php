@@ -44,7 +44,7 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
 
 🔍
 
-<a href="connexion.php">👤</a>
+<a href="auth/connexion.php">👤</a>
 
 ☰
 
