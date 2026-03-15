@@ -30,12 +30,14 @@ exit();
             <!-- Sidebar -->
 
             <div class="col-md-2 sidebar">
-                <h4 class="text-center">Upcycle</h4>
+                 <div class="logo text-center mb-4">
+                    <img src="../images/logo_upcycle.png" alt="Logo Upcycle">
+                </div>
 
                 <a href="dashboard_parts.php">Dashboard</a>
                 <a href="deposer_annonce.php">Déposer une annonce</a>
                 <a href="#">Dépôt conteneur</a>
-                <a href="#">Formations</a>
+                <a href="#">Formations / Événements</a>
                 <a href="#">Mon planning</a>
                 <a href="#">Conseils</a>
                 <a href="#">Upcycling Score</a>

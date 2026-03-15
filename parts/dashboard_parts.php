@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Espace Particulier - UpcycleConnect</title>
 <?php include("header_parts.php"); ?>
+
 </head>
 
 <body>
@@ -13,8 +14,9 @@
 
             <!-- Sidebar -->
             <div class="col-md-2 sidebar">
-                <h4 class="text-center">Upcycle</h4>
-
+                <div class="logo text-center mb-4">
+                    <img src="../images/logo_upcycle.png" alt="Logo Upcycle">
+                </div>
                 <a href="dashboard_parts.php">Dashboard</a>
                 <a href="deposer_annonce.php">Déposer une annonce</a>
                 <a href="#">Dépôt conteneur</a>
@@ -70,58 +72,58 @@
                     </div>
                 </div>
 
-            </div>
+                 <!-- Mes annonces -->
 
-            <!-- Mes annonces -->
+                <h4 class="mt-5">Mes dernières annonces</h4>
 
-            <h4 class="mt-5">Mes dernières annonces</h4>
+                <table class="table table-striped">
 
-            <table class="table table-striped">
+                <thead>
+                <tr>
+                <th>Titre</th>
+                <th>Type</th>
+                <th>Statut</th>
+                <th>Date</th>
+                </tr>
+                </thead>
 
-            <thead>
-            <tr>
-            <th>Titre</th>
-            <th>Type</th>
-            <th>Statut</th>
-            <th>Date</th>
-            </tr>
-            </thead>
+                <tbody>
 
-            <tbody>
+                <tr>
+                <td>Chaise en bois</td>
+                <td>Don</td>
+                <td>En attente</td>
+                <td>12/03/2026</td>
+                </tr>
 
-            <tr>
-            <td>Chaise en bois</td>
-            <td>Don</td>
-            <td>En attente</td>
-            <td>12/03/2026</td>
-            </tr>
+                <tr>
+                <td>Palette bois</td>
+                <td>Vente</td>
+                <td>Validée</td>
+                <td>10/03/2026</td>
+                </tr>
 
-            <tr>
-            <td>Palette bois</td>
-            <td>Vente</td>
-            <td>Validée</td>
-            <td>10/03/2026</td>
-            </tr>
+                </tbody>
 
-            </tbody>
+                </table>
 
-            </table>
+                <!-- Notifications -->
 
-            <!-- Notifications -->
+                <h4 class="mt-5">Notifications</h4>
 
-            <h4 class="mt-5">Notifications</h4>
+                <div class="notification-box shadow">
+                    <p>Votre annonce "Chaise en bois" est en attente de validation.</p>
+                    <p>Nouvelle formation disponible : Création de meubles en palette.</p>
+                </div>
 
-            <div class="notification-box shadow">
-
-            <p>Votre annonce "Chaise en bois" est en attente de validation.</p>
-            <p>Nouvelle formation disponible : Création de meubles en palette.</p>
-
-            </div>
+           
 
             </div>
 
         </div>
+
     </div>
+    
     <?php include("footer_parts.php"); ?>
 
 </body>
