@@ -80,7 +80,18 @@ PRESENTATION
 ========================= -->
 <section class="presentation" id="presentation">
     <h2>Découvrez UpCycle</h2>
+    <p>
+    Chez UpcycleConnect, nous sommes dédiés à la valorisation des matériaux et à la réduction des déchets par l’upcycling.
+    </p>
     <p>Nous réunissons particuliers, artisans et entreprises pour valoriser les matériaux et réduire les déchets.</p>
+    <p>
+    Grâce à notre espace collaboratif, chacun peut proposer, trouver et suivre des projets créatifs et durables.
+    </p>
+    <p>
+    Chaque initiative contribue à un impact environnemental mesurable.
+    Ensemble, créons un monde plus beau.
+    </p>   
+                  
 </section>
 
 <!-- =========================
