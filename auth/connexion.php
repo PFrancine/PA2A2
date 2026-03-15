@@ -56,7 +56,7 @@ $message = "Email incorrect";
 <meta charset="UTF-8">
 <title>Connexion</title>
 
-<link rel="stylesheet" href="style_connexio.css">
+<link rel="stylesheet" href="style_connexion.css">
 
 </head>
 
