@@ -60,7 +60,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $role
             ]);
 
-            $message = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
+            // redirection vers la page de connexion
+            header("Location: connexion.php");
+            exit();
         }
     }
 
