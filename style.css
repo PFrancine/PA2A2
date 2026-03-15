@@ -22,8 +22,9 @@ header{
 }
 
 .logo img{
-    width:60px;
-    height: auto;
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    padding: 10px;
 }
 
 nav a{
