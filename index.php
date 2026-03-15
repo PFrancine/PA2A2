@@ -44,15 +44,7 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
 
 🔍
 
-<?php if(isset($_SESSION['id_utilisateur'])): ?>
-
-<a href="profil.php">👤</a>
-
-<?php else: ?>
-
-<a href="auth/connexion.php">👤</a>
-
-<?php endif; ?>
+<a href="connexion.php">👤</a>
 
 ☰
 
