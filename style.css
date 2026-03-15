@@ -1,4 +1,5 @@
 /* RESET */
+
 *{
     margin:0;
     padding:0;
@@ -6,9 +7,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/* BODY */
+
 body{
-    background:#f5f5f5;
+    background:url("images/recyclage.jpeg") no-repeat center center/cover;
+    min-height:100vh;
+    color:#333;
 }
+
 
 /* HEADER */
 
@@ -18,96 +25,114 @@ header{
     justify-content:space-between;
     padding:15px 40px;
     background:white;
-    border-bottom:1px solid #ddd;
+    border-radius:20px;
+    margin:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
 .logo{
-    width:50px;
-    height:auto;
+    width:60px;
 }
 
-nav a{
-    margin:0 15px;
-    text-decoration:none;
-    color:#0b7d2b;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#05561d;
-}
-
-.search input{
-    padding:8px 12px;
+header input{
+    padding:10px 15px;
     border-radius:20px;
     border:1px solid #ccc;
+    width:250px;
 }
 
-.user a{
-    text-decoration:none;
-    color:black;
-    font-weight:bold;
+.icons{
+    display:flex;
+    gap:15px;
+    font-size:20px;
 }
+
+.icons a{
+    text-decoration:none;
+}
+
+
+/* SECTIONS */
+
+section{
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(4px);
+    border-radius:20px;
+    margin:40px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
 
 /* HERO */
 
 .hero{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    padding:60px;
+    justify-content:space-between;
+    gap:40px;
 }
 
 .hero-text h1{
-    font-size:40px;
-    line-height:1.4;
+    font-size:48px;
+    color:#1f6b2c;
+    line-height:1.3;
 }
 
 .hero-img img{
-    width:400px;
-    border-radius:8px;
+    width:450px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
+
 
 /* PRESENTATION */
 
 .presentation{
-    background:#0b7d2b;
-    color:white;
     text-align:center;
-    padding:40px;
 }
 
 .presentation h2{
     margin-bottom:20px;
+    color:#1f6b2c;
 }
 
 .presentation p{
-    margin:10px 0;
+    margin:10px auto;
     max-width:800px;
-    margin-left:auto;
-    margin-right:auto;
+    line-height:1.6;
 }
+
 
 /* CONSEILS */
 
 .conseils{
-    padding:60px;
     text-align:center;
 }
 
 .cards{
     display:flex;
     justify-content:center;
+    flex-wrap:wrap;
     gap:30px;
     margin-top:30px;
 }
 
+
+/* CARDS */
+
 .card{
     background:white;
     width:300px;
-    border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
     overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
 }
 
 .card img{
@@ -117,53 +142,67 @@ nav a:hover{
 }
 
 .card h3{
-    background:#1a8f38;
+    background:#2e8b3c;
     color:white;
-    padding:10px;
+    padding:12px;
+    font-size:18px;
+}
+
+.card h4{
+    padding:10px 15px;
+    color:#2e8b3c;
 }
 
 .card p{
-    padding:15px;
+    padding:0 15px 15px 15px;
+    line-height:1.5;
 }
+
+
+/* BOUTONS */
+
+.btn,
+.catalogue a,
+.connexion button{
+
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#2e8b3c;
+    color:white;
+    text-decoration:none;
+    border:none;
+    border-radius:12px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover,
+.catalogue a:hover,
+.connexion button:hover{
+
+    background:#1f6b2c;
+    transform:scale(1.05);
+}
+
 
 /* CATALOGUE */
 
 .catalogue{
-    padding:60px;
     text-align:center;
 }
 
-.catalogue .card h3{
-    background:#2a9d3f;
-}
-
-.catalogue a{
-    display:block;
-    margin:15px;
-    padding:10px;
-    background:#2a9d3f;
-    color:white;
-    text-decoration:none;
-    border-radius:20px;
-}
-
-.catalogue a:hover{
-    background:#1d7d2e;
-}
 
 /* CONNEXION */
 
 .connexion{
-    background:white;
-    padding:40px;
     width:400px;
-    margin:50px auto;
-    border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    margin:60px auto;
 }
 
 .connexion h2{
     margin-bottom:20px;
+    color:#1f6b2c;
 }
 
 .connexion label{
@@ -175,30 +214,14 @@ nav a:hover{
     width:100%;
     padding:10px;
     margin-top:5px;
-    border-radius:20px;
+    border-radius:10px;
     border:1px solid #ccc;
 }
 
-.connexion button{
-    width:100%;
-    margin-top:20px;
-    padding:12px;
-    background:#0b7d2b;
-    border:none;
-    color:white;
-    border-radius:20px;
-    font-size:16px;
-}
-
-.connexion button:hover{
-    background:#05561d;
-}
 
 /* FORUM */
 
 .forum{
-    background:#c8d9c7;
-    padding:50px;
     text-align:center;
 }
 
@@ -213,40 +236,29 @@ nav a:hover{
     width:70%;
     display:flex;
     justify-content:space-between;
-    border-radius:5px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .post span{
     font-weight:bold;
+    color:#2e8b3c;
 }
 
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 25px;
-    background:#0b7d2b;
-    color:white;
-    text-decoration:none;
-    border-radius:20px;
-}
-
-.btn:hover{
-    background:#05561d;
-}
 
 /* FOOTER */
 
 footer{
     background:white;
+    border-radius:20px;
+    margin:40px;
     padding:30px;
-    margin-top:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 footer h3{
-    background:#0b7d2b;
-    color:white;
-    padding:10px;
-    margin-bottom:20px;
+    color:#2e8b3c;
+    margin-bottom:15px;
 }
 
 footer p{
