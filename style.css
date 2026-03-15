@@ -21,11 +21,15 @@ header{
     border-bottom:1px solid #ddd;
 }
 
-img.logo {
-    width: 60px;     /* C'est cette ligne qui manquait pour réduire la taille ! */
+.logo-container {
+    display: flex;
+    align-items: center; 
+    height: 80px; /* La hauteur de votre barre de menu par exemple */
+}
+
+.logo {
+    width: 60px; /* Ici, on réduit enfin la taille */
     height: auto;
-    padding: 10px;
-    display: block;
 }
 
 nav a{

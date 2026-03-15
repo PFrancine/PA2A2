@@ -36,7 +36,9 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
 
 <header>
 
-<img src="images/logo_upcycle.png" class="logo">
+<div class="logo-container">
+    <img src="images/logo_upcycle.png" class="logo" alt="Logo Upcycle">
+</div>
 
 <input type="text" placeholder="Rechercher...">
 
