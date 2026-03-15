@@ -68,7 +68,7 @@ créons un monde plus beau !
 
 <div class="hero-img">
 
-<img src="images/recyclage.jpg">
+<img src="images/recyclage.jpeg">
 
 </div>
 
