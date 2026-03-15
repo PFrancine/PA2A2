@@ -11,6 +11,7 @@ exit();
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Espace Particulier - UpcycleConnect</title>
 <?php include("header_parts.php"); ?>
 
@@ -22,9 +23,9 @@ exit();
     <div class="container-fluid">
         <div class="row">
 
-            <!-- Sidebar -->
+            
                 <?php include("sidebar_parts.php"); ?>
-            <!-- Main content -->
+            
             <div class="col-md-10 p-4">
                 <?php
                     $prenom = $_SESSION['prenom'];
@@ -37,7 +38,7 @@ exit();
 
                 <div class="row mt-4">
 
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                         <div class="card card-action p-3 text-center shadow">
                             <h5>Déposer un objet</h5>
                             <p>Publier une annonce</p>
@@ -45,7 +46,7 @@ exit();
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                         <div class="card card-action p-3 text-center shadow">
                             <h5>Formations</h5>
                             <p>Voir les ateliers</p>
@@ -53,7 +54,7 @@ exit();
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                         <div class="card card-action p-3 text-center shadow">
                             <h5>Mon planning</h5>
                             <p>Voir mes activités</p>
@@ -61,7 +62,7 @@ exit();
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                         <div class="card card-action p-3 text-center shadow">
                             <h5>Upcycling Score</h5>
                             <p>Voir mon impact</p>
@@ -70,42 +71,74 @@ exit();
                     </div>
                 </div>
 
-                 <!-- Mes annonces -->
+                
 
                 <h4 class="mt-5">Mes dernières annonces</h4>
+                <?php
 
-                <table class="table table-striped">
+                    $id_utilisateur = $_SESSION['id_utilisateur'];
 
-                <thead>
-                <tr>
-                <th>Titre</th>
-                <th>Type</th>
-                <th>Statut</th>
-                <th>Date</th>
-                </tr>
-                </thead>
+                    $sql = "SELECT titre, type_annonce, statut, date_publication
+                            FROM annonce
+                            WHERE id_utilisateur = ?
+                            ORDER BY date_publication DESC
+                            LIMIT 3";
 
-                <tbody>
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([$id_utilisateur]);
 
-                <tr>
-                <td>Chaise en bois</td>
-                <td>Don</td>
-                <td>En attente</td>
-                <td>12/03/2026</td>
-                </tr>
+                    $annonces = $stmt->fetchAll();
 
-                <tr>
-                <td>Palette bois</td>
-                <td>Vente</td>
-                <td>Validée</td>
-                <td>10/03/2026</td>
-                </tr>
+                ?>
+                <div class="table-responsive table-container">
+                    <table class="table table-striped">
 
-                </tbody>
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Type</th>
+                                <th>Statut</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
 
-                </table>
+                        <tbody>
 
-                <!-- Notifications -->
+                            <?php if(count($annonces) > 0): ?>
+                            <?php foreach($annonces as $annonce): ?>
+
+                            <tr>
+                                <td><?php echo htmlspecialchars($annonce['titre']); ?></td>
+
+                                <td><?php echo htmlspecialchars($annonce['type_annonce']); ?></td>
+
+                                <td><?php echo htmlspecialchars($annonce['statut']); ?></td>
+
+                                <td><?php echo date("d/m/Y", strtotime($annonce['date_publication'])); ?></td>
+                            </tr>
+
+                            <?php endforeach; ?>
+                            <?php else: ?>
+
+                            <tr>
+                            <td colspan="4" class="text-center">
+                            Aucune annonce publiée pour le moment
+                            </td>
+                            </tr>
+
+                            <?php endif; ?>
+
+
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="text-end">
+                    <a href="mes_annonces.php" class="btn btn-sm annonces-btn">
+                    Voir toutes mes annonces
+                    </a>
+                </div>
+        
 
                 <h4 class="mt-5">Notifications</h4>
 

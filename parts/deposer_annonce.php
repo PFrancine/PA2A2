@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../database.php"; // connexion BDD
+require_once "../database.php";
 
 if(!isset($_SESSION['id_utilisateur'])){
 header("Location: ../auth/connexion.php");
@@ -27,10 +27,10 @@ exit();
     <div class="container-fluid">
         <div class="row">
 
-            <!-- Sidebar -->
+            
                 <?php include("sidebar_parts.php"); ?>
 
-            <!-- Contenu -->
+            
 
             <div class="col-md-10 p-5 d-flex flex-column align-items-center">
                 <?php
@@ -245,14 +245,12 @@ exit();
                     reader.readAsDataURL(file);
                     });
 
-                    /* IMPORTANT : remettre les fichiers dans l'input */
                     const dataTransfer = new DataTransfer();
                     selectedFiles.forEach(file => dataTransfer.items.add(file));
                     imageInput.files = dataTransfer.files;
 
                 }
 
-                /* supprimer image */
                 function removeImage(index){
                 selectedFiles.splice(index,1);
 
