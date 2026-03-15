@@ -161,7 +161,7 @@ CONNEXION RAPIDE
 <!-- =========================
 FORUM
 ========================= -->
-<section class="forum">
+<section class="forum" id="forum">
     <h2>Forum</h2>
     <h3>Actualités :</h3>
     <?php foreach($annonces as $annonce): ?>
