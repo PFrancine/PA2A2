@@ -2,305 +2,277 @@
 RESET
 ========================= */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-
-font-family:'Poppins', sans-serif;
-
-min-height:100vh;
-
-display:flex;
-flex-direction:column;
-
-background:
-linear-gradient(rgba(20,80,40,0.75), rgba(20,80,40,0.75)),
-url("../images/recyclage.jpeg") center/cover no-repeat;
-
-color:#333;
-
+    font-family:'Poppins', sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:
+    linear-gradient(rgba(20,80,40,0.75), rgba(20,80,40,0.75)),
+    url("../images/recyclage.jpeg") center/cover no-repeat;
+    color:#333;
 }
-
 
 /* =========================
 HEADER
 ========================= */
+header.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 50px;
+    background:white;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    position:relative;
+    z-index:1000;
+}
 
-header{
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-padding:15px 50px;
-
-background:white;
-
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:20px;
 }
 
 .logo{
-width:60px;
+    width:60px;
 }
 
-header input{
-
-width:300px;
-
-padding:10px 15px;
-
-border-radius:30px;
-
-border:1px solid #ddd;
-
-outline:none;
-
+.brand{
+    font-size:20px;
+    font-weight:700;
+    color:#2ca34a;
 }
 
-header input:focus{
-
-border-color:#2ca34a;
-
-box-shadow:0 0 0 3px rgba(44,163,74,0.15);
-
+nav a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
 }
 
-.icons{
-
-display:flex;
-gap:20px;
-
-font-size:22px;
-
+nav a:hover{
+    color:#2ca34a;
 }
 
+.nav-search{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    margin:0 30px;
+}
+
+.nav-search input{
+    width:300px;
+    padding:10px 15px;
+    border-radius:30px;
+    border:1px solid #ddd;
+    outline:none;
+    transition:all 0.25s ease;
+}
+
+.nav-search input:focus{
+    border-color:#2ca34a;
+    box-shadow:0 0 0 3px rgba(44,163,74,0.15);
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    position:relative;
+}
+
+.notification{
+    font-size:22px;
+    cursor:pointer;
+    position:relative;
+}
+
+.profile{
+    cursor:pointer;
+    position:relative;
+    font-size:22px;
+    user-select:none;
+}
+
+.profile .dropdown{
+    display:none;
+    position:absolute;
+    top:35px;
+    right:0;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    overflow:hidden;
+    min-width:150px;
+    z-index:1000;
+}
+
+.profile:hover .dropdown{
+    display:block;
+}
+
+.profile .dropdown a{
+    display:block;
+    padding:10px 15px;
+    text-decoration:none;
+    color:#333;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.profile .dropdown a:hover{
+    background:#2ca34a;
+    color:white;
+}
 
 /* =========================
 LOGIN CONTAINER
 ========================= */
-
 .login-container{
-
-width:420px;
-
-margin:80px auto;
-
-padding:45px;
-
-background:rgba(255,255,255,0.95);
-
-border-radius:20px;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,0.25);
-
-backdrop-filter:blur(6px);
-
-animation:fadeIn 0.8s ease;
-
+    width:420px;
+    margin:80px auto;
+    padding:45px;
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+    backdrop-filter:blur(6px);
+    animation:fadeIn 0.8s ease;
 }
-
 
 /* =========================
 TITRE
 ========================= */
-
 .login-container h2{
-
-font-size:30px;
-
-text-align:center;
-
-margin-bottom:30px;
-
-color:#1e7d3b;
-
-font-weight:600;
-
+    font-size:30px;
+    text-align:center;
+    margin-bottom:30px;
+    color:#1e7d3b;
+    font-weight:600;
 }
-
 
 /* =========================
 LABEL
 ========================= */
-
 .login-container label{
-
-display:block;
-
-margin-top:15px;
-
-margin-bottom:6px;
-
-font-size:14px;
-
-font-weight:500;
-
-color:#444;
-
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-size:14px;
+    font-weight:500;
+    color:#444;
 }
-
 
 /* =========================
 INPUTS
 ========================= */
-
 .login-container input{
-
-width:100%;
-
-padding:13px 15px;
-
-border-radius:10px;
-
-border:1px solid #ddd;
-
-background:#fafafa;
-
-font-size:14px;
-
-transition:all 0.25s ease;
-
+    width:100%;
+    padding:13px 15px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    background:#fafafa;
+    font-size:14px;
+    transition:all 0.25s ease;
 }
 
 .login-container input:focus{
-
-outline:none;
-
-border-color:#2ca34a;
-
-box-shadow:0 0 0 3px rgba(44,163,74,0.15);
-
-background:white;
-
+    outline:none;
+    border-color:#2ca34a;
+    box-shadow:0 0 0 3px rgba(44,163,74,0.15);
+    background:white;
 }
-
 
 /* =========================
 BOUTON
 ========================= */
-
 button{
-
-width:100%;
-
-margin-top:30px;
-
-padding:14px;
-
-border:none;
-
-border-radius:10px;
-
-font-size:16px;
-
-font-weight:600;
-
-cursor:pointer;
-
-color:white;
-
-background:linear-gradient(135deg,#2ca34a,#1c7d35);
-
-transition:all 0.25s ease;
-
+    width:100%;
+    margin-top:30px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(135deg,#2ca34a,#1c7d35);
+    transition:all 0.25s ease;
 }
 
 button:hover{
-
-transform:translateY(-2px);
-
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
-
-background:linear-gradient(135deg,#24903f,#16632a);
-
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    background:linear-gradient(135deg,#24903f,#16632a);
 }
-
 
 /* =========================
 LIENS
 ========================= */
-
 .links{
-
-margin-top:15px;
-
-text-align:center;
-
-font-size:14px;
-
+    margin-top:15px;
+    text-align:center;
+    font-size:14px;
 }
 
 .links a{
-
-color:#2ca34a;
-
-text-decoration:none;
-
-font-weight:600;
-
+    color:#2ca34a;
+    text-decoration:none;
+    font-weight:600;
 }
 
 .links a:hover{
-text-decoration:underline;
+    text-decoration:underline;
 }
-
 
 /* =========================
 ERREUR
 ========================= */
-
 .error{
-
-color:#e53935;
-
-text-align:center;
-
-margin-bottom:15px;
-
-font-size:14px;
-
+    color:#e53935;
+    text-align:center;
+    margin-bottom:15px;
+    font-size:14px;
 }
-
 
 /* =========================
 ANIMATION
 ========================= */
-
 @keyframes fadeIn{
-
-from{
-opacity:0;
-transform:translateY(20px);
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
 
 /* =========================
 RESPONSIVE
 ========================= */
-
-@media(max-width:600px){
-
-.login-container{
-
-width:90%;
-padding:35px;
-
-}
-
-header input{
-display:none;
-}
-
+@media(max-width:900px){
+    .nav-search{
+        display:none;
+    }
+    .login-container{
+        width:90%;
+        padding:35px;
+    }
+    header.navbar{
+        flex-wrap:wrap;
+        padding:15px 20px;
+    }
+    nav a{
+        margin-left:10px;
+        font-size:14px;
+    }
 }
