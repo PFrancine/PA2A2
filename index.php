@@ -172,7 +172,7 @@ FORUM
     <?php endforeach; ?>
     <h3>Question du jour</h3>
     <p>Que peut-on faire avec des bouteilles en verre recyclées ?</p>
-    <a href="forum.php" class="btn">Accéder au Forum</a>
+    <a href="connexion.php" class="btn">Accéder au Forum</a>
 </section>
 
 <!-- =========================
