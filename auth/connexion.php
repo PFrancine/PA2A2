@@ -64,7 +64,7 @@ $message = "Email incorrect";
 
 <header>
 
-<img src="../images/logo.png" class="logo">
+<img src="../images/logo_upcycle.png" class="logo">
 
 <input type="text" placeholder="Rechercher...">
 
