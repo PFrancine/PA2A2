@@ -91,7 +91,7 @@ PRESENTATION
     Chaque initiative contribue à un impact environnemental mesurable.
     Ensemble, créons un monde plus beau.
     </p>   
-                  
+
 </section>
 
 <!-- =========================
@@ -188,4 +188,4 @@ FOOTER PREMIUM
 </footer>
 
 </body>
-</html>
+</html> 
