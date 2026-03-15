@@ -4,41 +4,30 @@ require_once "../database.php";
 $message = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    $prenom = htmlspecialchars($_POST["prenom"]);
-    $nom = htmlspecialchars($_POST["nom"]);
-    $email = htmlspecialchars($_POST["email"]);
+    $email = $_POST["email"];
     $password = $_POST["password"];
-    $confirm = $_POST["confirm_password"];
-    $role = $_POST["role"];
 
-    if($password != $confirm){
-        $message = "Les mots de passe ne correspondent pas.";
-    } elseif(strlen($password) < 8){
-        $message = "Le mot de passe doit contenir au moins 8 caractères.";
-    } elseif(!preg_match('/[A-Z]/', $password)){
-        $message = "Le mot de passe doit contenir au moins une lettre majuscule.";
-    } elseif(!preg_match('/[0-9]/', $password)){
-        $message = "Le mot de passe doit contenir au moins un chiffre.";
-    } elseif(!preg_match('/[\W_]/', $password)){
-        $message = "Le mot de passe doit contenir au moins un caractère spécial (ex: !@#$%).";
-    } else {
-        $sql = "SELECT id_utilisateur FROM utilisateur WHERE email = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$email]);
+    $sql = "SELECT * FROM utilisateur WHERE email = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$email]);
 
-        if($stmt->rowCount() > 0){
-            $message = "Cet email existe déjà.";
-        } else {
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-            $sqlInsert = "INSERT INTO utilisateur 
-            (nom, prenom, email, mot_de_passe, id_role)
-            VALUES (?, ?, ?, ?, ?)";
-            $stmt = $pdo->prepare($sqlInsert);
-            $stmt->execute([$nom, $prenom, $email, $passwordHash, $role]);
-            header("Location: connexion.php");
+    $user = $stmt->fetch();
+
+    if($user){
+        if(password_verify($password, $user["mot_de_passe"])){
+            session_start();
+            $_SESSION["id_utilisateur"] = $user["id_utilisateur"];
+            $_SESSION["prenom"] = $user["prenom"];
+            $_SESSION["role"] = $user["id_role"];
+            if ($_SESSION['role'] == 1) {
+                header('location: ../parts/dashboard_parts.php');
+            }
             exit();
+        } else {
+            $message = "Mot de passe incorrect";
         }
+    } else {
+        $message = "Email incorrect";
     }
 }
 ?>
@@ -46,16 +35,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inscription - UpcycleConnect</title>
-<link rel="stylesheet" href="style_inscription.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - UpcycleConnect</title>
+    <link rel="stylesheet" href="style_connexion.css?v=999">
 </head>
 <body>
 
-<!-- =========================
-BARRE DE NAVIGATION
-========================= -->
 <header class="navbar">
     <div class="nav-left">
         <img src="../images/logo_upcycle.png" class="logo">
@@ -85,52 +71,30 @@ BARRE DE NAVIGATION
     </div>
 </header>
 
-<!-- =========================
-FORMULAIRE INSCRIPTION
-========================= -->
-<section class="inscription-container">
-<h2>S’inscrire</h2>
+<section class="login-container">
+    <h2>Se connecter</h2>
+    <?php if($message): ?>
+        <p class="error"><?= $message ?></p>
+    <?php endif; ?>
 
-<?php if($message): ?>
-<p><?= $message ?></p>
-<?php endif; ?>
+    <form method="POST">
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-<form method="POST">
-<div class="row">
-    <div class="input-group">
-        <label>Prénom</label>
-        <input type="text" name="prenom" required>
-    </div>
-    <div class="input-group">
-        <label>Nom</label>
-        <input type="text" name="nom" required>
-    </div>
-</div>
+        <label>Mot de passe</label>
+        <input type="password" name="password" required>
 
-<label>Email</label>
-<input type="email" name="email" required>
+        <button type="submit">Se connecter</button>
 
-<label>Mot de passe</label>
-<input type="password" name="password" required>
+        <p class="links">
+            <a href="#">Mot de passe oublié ?</a>
+        </p>
 
-<label>Confirmer mot de passe</label>
-<input type="password" name="confirm_password" required>
-
-<label>Vous êtes :</label>
-<select name="role" required>
-<option value="">Choisir</option>
-<option value="1">Particulier</option>
-<option value="2">Professionnel</option>
-<option value="3">Salarié</option>
-</select>
-
-<button type="submit">S'inscrire</button>
-
-<p>
-Déjà inscrit ?  
-<a href="connexion.php">Se connecter</a>
-</p>
-</form>
+        <p class="links">
+            Vous n'avez pas de compte ?
+            <a href="inscription.php">S'inscrire</a>
+        </p>
+    </form>
 </section>
 
 </body>
