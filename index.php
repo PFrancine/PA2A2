@@ -36,7 +36,7 @@ HEADER PREMIUM
             <a href="index.php">Accueil</a>
             <a href="#conseils">Conseils & Astuces</a>
             <a href="#catalogue">Catalogue</a>
-            <a href="forum.php">Forum</a>
+            <a href="#forum">Forum</a>
         </nav>
     </div>
 
