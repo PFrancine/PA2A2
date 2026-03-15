@@ -51,28 +51,50 @@ $message = "Email incorrect";
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<header class="navbar">
 
-<meta charset="UTF-8">
-<title>Connexion</title>
-
-<link rel="stylesheet" href="style_connexion.css?v=999">
-
-</head>
-
-<body>
-
-<header>
+<div class="nav-left">
 
 <img src="../images/logo_upcycle.png" class="logo">
 
-<input type="text" placeholder="Rechercher...">
+<span class="brand">UpcycleConnect</span>
 
-<div class="icons">
+<nav>
 
-🔍
+<a href="../index.php">Accueil</a>
+<a href="../catalogue.php">Catalogue</a>
+<a href="../formations.php">Formations</a>
+<a href="../forum.php">Forum</a>
+
+</nav>
+
+</div>
+
+
+<div class="nav-search">
+
+<input type="text" placeholder="Rechercher un objet, une formation...">
+
+</div>
+
+
+<div class="nav-right">
+
+<span class="notification">🔔</span>
+
+<div class="profile">
+
 👤
-☰
+
+<div class="dropdown">
+
+<a href="#">Profil</a>
+<a href="#">Paramètres</a>
+<a href="../auth/logout.php">Déconnexion</a>
+
+</div>
+
+</div>
 
 </div>
 
