@@ -2,15 +2,15 @@
 session_start();
 require_once __DIR__ . '/database.php';
 
-// Récupérer 1 formation
+
 $sqlFormation = "SELECT * FROM formation WHERE statut='VALIDE' ORDER BY date_formation LIMIT 1";
 $formation = $pdo->query($sqlFormation)->fetch();
 
-// Récupérer 2 événements
+
 $sqlEvenement = "SELECT * FROM evenement ORDER BY date_evenement LIMIT 2";
 $evenements = $pdo->query($sqlEvenement)->fetchAll();
 
-// Récupérer 4 annonces pour le forum
+
 $sqlForum = "SELECT titre, date_publication FROM annonce ORDER BY date_publication DESC LIMIT 4";
 $annonces = $pdo->query($sqlForum)->fetchAll();
 ?>
@@ -25,9 +25,6 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
 </head>
 <body>
 
-<!-- =========================
-HEADER PREMIUM
-========================= -->
 <header class="navbar">
     <div class="nav-left">
         <img src="images/logo_upcycle.png" class="logo" alt="Logo">
@@ -61,9 +58,6 @@ HEADER PREMIUM
     </div>
 </header>
 
-<!-- =========================
-HERO
-========================= -->
 <section class="hero">
     <div class="hero-text">
         <h1>Du passé au renouveau,<br>créons un monde plus beau !</h1>
@@ -75,9 +69,6 @@ HERO
     </div>
 </section>
 
-<!-- =========================
-PRESENTATION
-========================= -->
 <section class="presentation" id="presentation">
     <h2>Découvrez UpCycle</h2>
     <p>
@@ -94,9 +85,6 @@ PRESENTATION
 
 </section>
 
-<!-- =========================
-CONSEILS
-========================= -->
 <section class="conseils" id="conseils">
     <h2>Conseils & Astuces</h2>
     <div class="cards">
@@ -113,9 +101,6 @@ CONSEILS
     </div>
 </section>
 
-<!-- =========================
-CATALOGUE
-========================= -->
 <section class="catalogue" id="catalogue">
     <h2>Catalogue (Formations / Événements)</h2>
     <div class="cards">
@@ -141,7 +126,7 @@ if($formation): ?>
 
         <!-- Formation -->
         <div class="card">
-            <img src="images/formation_meuble.jpg" alt="Formation meuble">
+            <img src="images/formation_meuble.png" alt="Formation meuble">
             <h3>Formation</h3>
             <h4>Créer un meuble à partir de palettes</h4>
             <p>
@@ -153,7 +138,7 @@ if($formation): ?>
 
         <!-- Événement 1 -->
         <div class="card">
-            <img src="images/event_recyclage.jpg" alt="Atelier recyclage">
+            <img src="images/event_recyclage.png" alt="Atelier recyclage">
             <h3>Événement</h3>
             <h4>Atelier créatif recyclage</h4>
             <p>
@@ -191,9 +176,7 @@ if($formation): ?>
     </div>
 </section>
 
-<!-- =========================
-CONNEXION RAPIDE
-========================= -->
+
 <?php if(!isset($_SESSION['id_utilisateur'])): ?>
 <section class="connexion">
     <h2>Déjà membre ?</h2>
@@ -208,9 +191,7 @@ CONNEXION RAPIDE
 </section>
 <?php endif; ?>
 
-<!-- =========================
-FORUM
-========================= -->
+
 <section class="forum" id="forum">
     <h2>Forum</h2>
     <h3>Actualités :</h3>
@@ -225,9 +206,6 @@ FORUM
     <a href="auth/connexion.php" class="btn">Accéder au Forum</a>
 </section>
 
-<!-- =========================
-FOOTER PREMIUM
-========================= -->
 <footer>
     <div class="footer-content">
         <h3>UpcycleConnect</h3>

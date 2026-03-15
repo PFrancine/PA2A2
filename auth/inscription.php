@@ -53,9 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 
-<!-- =========================
-BARRE DE NAVIGATION
-========================= -->
+
 <header class="navbar">
     <div class="nav-left">
         <img src="../images/logo_upcycle.png" class="logo">
@@ -85,9 +83,7 @@ BARRE DE NAVIGATION
     </div>
 </header>
 
-<!-- =========================
-FORMULAIRE INSCRIPTION
-========================= -->
+
 <section class="inscription-container">
 <h2>S’inscrire</h2>
 

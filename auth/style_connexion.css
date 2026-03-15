@@ -1,6 +1,3 @@
-/* =========================
-RESET
-========================= */
 *{
     margin:0;
     padding:0;
@@ -18,9 +15,6 @@ body{
     color:#333;
 }
 
-/* =========================
-HEADER
-========================= */
 header.navbar{
     display:flex;
     align-items:center;
@@ -133,9 +127,6 @@ nav a:hover{
     color:white;
 }
 
-/* =========================
-LOGIN CONTAINER
-========================= */
 .login-container{
     width:420px;
     margin:80px auto;
@@ -147,9 +138,6 @@ LOGIN CONTAINER
     animation:fadeIn 0.8s ease;
 }
 
-/* =========================
-TITRE
-========================= */
 .login-container h2{
     font-size:30px;
     text-align:center;
@@ -158,9 +146,6 @@ TITRE
     font-weight:600;
 }
 
-/* =========================
-LABEL
-========================= */
 .login-container label{
     display:block;
     margin-top:15px;
@@ -170,9 +155,7 @@ LABEL
     color:#444;
 }
 
-/* =========================
-INPUTS
-========================= */
+
 .login-container input{
     width:100%;
     padding:13px 15px;
@@ -190,9 +173,6 @@ INPUTS
     background:white;
 }
 
-/* =========================
-BOUTON
-========================= */
 button{
     width:100%;
     margin-top:30px;
@@ -213,9 +193,6 @@ button:hover{
     background:linear-gradient(135deg,#24903f,#16632a);
 }
 
-/* =========================
-LIENS
-========================= */
 .links{
     margin-top:15px;
     text-align:center;
@@ -232,9 +209,6 @@ LIENS
     text-decoration:underline;
 }
 
-/* =========================
-ERREUR
-========================= */
 .error{
     color:#e53935;
     text-align:center;
@@ -242,9 +216,6 @@ ERREUR
     font-size:14px;
 }
 
-/* =========================
-ANIMATION
-========================= */
 @keyframes fadeIn{
     from{
         opacity:0;
@@ -256,9 +227,6 @@ ANIMATION
     }
 }
 
-/* =========================
-RESPONSIVE
-========================= */
 @media(max-width:900px){
     .nav-search{
         display:none;
