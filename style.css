@@ -21,9 +21,14 @@ header{
     border-bottom:1px solid #ddd;
 }
 
-.logo {
-    width: 60px !important;
-    height: auto !important;
+header img{
+    width:40px;
+    height:auto;
+}
+
+.logo{
+    width:30px;
+    height:auto;
 }
 
 nav a{
