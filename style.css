@@ -58,12 +58,41 @@ footer p{margin:5px 0;}
 @media(max-width:1024px){.hero{flex-direction:column;text-align:center;}.hero-img img{width:100%;}}
 @media(max-width:768px){.cards{flex-direction:column;align-items:center;}.post{width:90%;}.nav-search{display:none;}}
 
-.presentation{
-    text-align:center;
+.presentation {
+    text-align: center;
+    padding: 100px 10%; /* Plus d'espace autour pour laisser respirer */
+    background-color: #ffffff; /* Fond blanc pur pour détacher du reste */
 }
 
-.presentation p{
-    max-width:700px; /* largeur plus propre */
-    margin:15px auto; /* espace + centrage */
-    line-height:1.8; /* meilleure lisibilité */
+.presentation h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Petit détail : une ligne décorative sous le titre */
+.presentation h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #2ca34a;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.presentation p {
+    max-width: 850px; /* Un peu plus large pour éviter trop de retours à la ligne */
+    margin: 0 auto 20px;
+    line-height: 1.8;
+    color: #555; /* Gris foncé au lieu de noir pur pour plus de douceur */
+    font-size: 1.1rem;
+}
+
+/* On donne un peu de poids à la première phrase */
+.presentation p:first-of-type {
+    font-weight: 500;
+    color: #333;
+    font-size: 1.2rem;
 }
