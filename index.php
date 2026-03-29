@@ -99,10 +99,15 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
     </div>
 </section>
 
+<?php 
+/* 
 <section class="catalogue" id="catalogue">
     <h2>Catalogue (Formations / Événements)</h2>
-    <div class="cards">
-
+    <div class="cards"> 
+                </div>
+                </section>
+*/
+?>
 
 
 <?php 
