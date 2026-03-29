@@ -70,7 +70,7 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
 </section>
 
 <section class="presentation" id="presentation">
-    <h2>Découvrez UpCycle</h2>
+    <h2>Découvrer UpCycle</h2>
     <p>
     Chez UpcycleConnect, nous sommes dédiés à la valorisation des matériaux et à la réduction des déchets par l’upcycling.
     </p>
