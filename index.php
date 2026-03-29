@@ -154,7 +154,7 @@ if($formation): ?>
 
         <!-- Événement 2 -->
         <div class="card">
-            <img src="images/event_marche.jpg" alt="Marché upcycling">
+            <img src="images/event_marche.png" alt="Marché upcycling">
             <h3>Événement</h3>
             <h4>Marché des créateurs Upcycle</h4>
             <p>
