@@ -57,3 +57,6 @@ footer p{margin:5px 0;}
 
 @media(max-width:1024px){.hero{flex-direction:column;text-align:center;}.hero-img img{width:100%;}}
 @media(max-width:768px){.cards{flex-direction:column;align-items:center;}.post{width:90%;}.nav-search{display:none;}}
+
+.presentation {text-align: center;}
+.presentation p {max-width: 800px; /* Optionnel : pour éviter que les lignes ne soient trop longues sur grand écran */ margin: 0 auto 15px; /* Centre le bloc de texte et ajoute un espace en bas */}
