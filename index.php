@@ -189,7 +189,7 @@ if($formation): ?>
         <input type="email" name="email" required>
         <label>Mot de passe</label>
         <input type="password" name="password" required>
-        <button type="submit">Se connecter</button>
+        <button type="submit" class="btn">Se connecter</button>
         <p>Vous n'avez pas encore de compte ? <a href="auth/inscription.php">Inscrivez-vous</a></p>
     </form>
 </section>
