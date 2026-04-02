@@ -62,12 +62,7 @@ $annonces = $pdo->query($sqlForum)->fetchAll();
     <div class="hero-text">
         <h1>Du passé au renouveau,<br>créons un monde plus beau !</h1>
         <p>Rejoignez notre communauté d’upcycling et donnez une seconde vie aux objets.</p>
-        
-        <?php if(isset($_SESSION['id_utilisateur'])): ?>
-            <a href="#catalogue" class="btn">Voir les nouveautés</a>
-        <?php else: ?>
-            <a href="auth/connexion.php" class="btn">Découvrir</a>
-        <?php endif; ?>
+        <a href="auth/connexion.php" class="btn">Découvrir</a>
     </div>
     <div class="hero-img">
         <img src="images/recyclage.jpeg" alt="Upcycling">
@@ -134,23 +129,16 @@ if($formation): ?>
     <div class="cards">
 
         <!-- Formation -->
-        <section class="catalogue" id="catalogue">
-            <h2>Catalogue (Formations / Événements)</h2>
-            <div class="cards">
-                <?php foreach($evenements as $event): ?>
-                    <div class="card">
-                        <h3>Événement</h3>
-                        <h4><?= htmlspecialchars($event['titre']) ?></h4>
-                        <p><?= htmlspecialchars(substr($event['description'], 0, 100)) ?>...</p>
-                
-                        <?php if(isset($_SESSION['id_utilisateur'])): ?>
-                            <a href="catalogue/evenement.php?id=<?= $event['id_evenement'] ?>">Voir l'événement</a>
-                        <?php else: ?>
-                            <a href="auth/connexion.php">Connectez-vous pour participer</a>
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+        <div class="card">
+            <img src="images/formation_meuble.png" alt="Formation meuble">
+            <h3>Formation</h3>
+            <h4>Créer un meuble à partir de palettes</h4>
+            <p>
+                Apprenez à transformer des palettes en bois en meubles modernes et durables.
+                Formation animée par un artisan spécialisé en upcycling.
+            </p>
+            <a href="auth/connexion.php">En savoir plus</a>
+        </div>
 
         <!-- Événement 1 -->
         <div class="card">
@@ -209,14 +197,17 @@ if($formation): ?>
 
 
 <section class="forum" id="forum">
+    <h2>Forum</h2>
+    <h3>Actualités :</h3>
+    <?php foreach($annonces as $annonce): ?>
+    <div class="post">
+        <p><?= $annonce['titre'] ?></p>
+        <span><?= date('d M Y', strtotime($annonce['date_publication'])) ?></span>
+    </div>
+    <?php endforeach; ?>
     <h3>Question du jour</h3>
     <p>Que peut-on faire avec des bouteilles en verre recyclées ?</p>
-    
-    <?php if(isset($_SESSION['id_utilisateur'])): ?>
-        <a href="forum/index.php" class="btn">Participer à la discussion</a>
-    <?php else: ?>
-        <a href="auth/connexion.php" class="btn">Connectez-vous pour répondre</a>
-    <?php endif; ?>
+    <a href="auth/connexion.php" class="btn">Accéder au Forum</a>
 </section>
 
 <footer>
