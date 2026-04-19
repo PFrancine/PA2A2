@@ -1,20 +1,3 @@
-<?php
-session_start();
-require_once __DIR__ . '/database.php';
-
-
-$sqlFormation = "SELECT * FROM formation WHERE statut='VALIDE' ORDER BY date_formation LIMIT 1";
-$formation = $pdo->query($sqlFormation)->fetch();
-
-
-$sqlEvenement = "SELECT * FROM evenement ORDER BY date_evenement LIMIT 2";
-$evenements = $pdo->query($sqlEvenement)->fetchAll();
-
-
-$sqlForum = "SELECT titre, date_publication FROM annonce ORDER BY date_publication DESC LIMIT 4";
-$annonces = $pdo->query($sqlForum)->fetchAll();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>

@@ -1,13 +1,3 @@
-<?php
-session_start();
-require_once "../database.php";
-
-if(!isset($_SESSION['id_utilisateur'])){
-header("Location: ../auth/connexion.php");
-exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 

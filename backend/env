@@ -1,0 +1,9 @@
+# Base de données
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=admin
+DB_NAME=upcycleconnect
+
+# JWT
+JWT_SECRET=change_moi_en_prod_cle_longue_et_aleatoire
