@@ -22,7 +22,7 @@ CREATE TABLE ROLE (
 );
 
 CREATE TABLE UTILISATEUR (
-    id_utilisateur SERIAL PRIMARY KEY,
+    id_utilisateur uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     prenom VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
@@ -43,12 +43,12 @@ CREATE TABLE ABONNEMENT (
     id_abonnement SERIAL PRIMARY KEY,
     date_debut DATE NOT NULL,
     date_fin DATE,
-    id_utilisateur INT NOT NULL REFERENCES UTILISATEUR(id_utilisateur),
+    id_utilisateur uuid REFERENCES UTILISATEUR(id_utilisateur),
     id_offre INT NOT NULL REFERENCES OFFRE(id_offre)
 );
 
 CREATE TABLE ANNONCE (
-    id_annonce SERIAL PRIMARY KEY,
+    id_annonce uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     titre VARCHAR(200) NOT NULL,
     description TEXT NOT NULL,
     etat etat_enum NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE ANNONCE (
     prix DECIMAL(10,2) DEFAULT 0,
     statut statut_annonce_enum NOT NULL DEFAULT 'EN_ATTENTE',
     date_publication TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    id_utilisateur INT NOT NULL REFERENCES UTILISATEUR(id_utilisateur)
+    id_utilisateur uuid REFERENCES UTILISATEUR(id_utilisateur)
 );
 
 CREATE TABLE CONTENEUR (
@@ -76,19 +76,19 @@ CREATE TABLE EVENEMENT (
     prix DECIMAL(10,2) NOT NULL DEFAULT 0,
     date_event TIMESTAMP NOT NULL,
     lieu VARCHAR(150),
-    id_animateur INT REFERENCES UTILISATEUR(id_utilisateur)
+    id_animateur uuid REFERENCES UTILISATEUR(id_utilisateur)
 );
 
 CREATE TABLE PARTICIPATION_EVENEMENT (
     id_evenement INT NOT NULL REFERENCES EVENEMENT(id_evenement),
-    id_utilisateur INT NOT NULL REFERENCES UTILISATEUR(id_utilisateur),
+    id_utilisateur uuid REFERENCES UTILISATEUR(id_utilisateur),
     statut_paiement statut_paiement_enum DEFAULT 'EN_ATTENTE',
     PRIMARY KEY (id_utilisateur, id_evenement)
 );
 
 CREATE TABLE DEPOT (
     id_depot SERIAL PRIMARY KEY,
-    id_annonce INT NOT NULL REFERENCES ANNONCE(id_annonce),
+    id_annonce uuid REFERENCES ANNONCE(id_annonce),
     id_conteneur INT NOT NULL REFERENCES CONTENEUR(id_conteneur),
     code_unique VARCHAR(100) UNIQUE NOT NULL,
     statut statut_depot_enum DEFAULT 'EN_ATTENTE'
@@ -100,7 +100,7 @@ CREATE TABLE PROJET (
     description TEXT NOT NULL,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     statut statut_projet_enum DEFAULT 'EN_COURS',
-    id_professionnel INT NOT NULL REFERENCES UTILISATEUR(id_utilisateur)
+    id_professionnel uuid REFERENCES UTILISATEUR(id_utilisateur)
 );
 
 CREATE TABLE ETAPE_PROJET (
@@ -112,10 +112,41 @@ CREATE TABLE ETAPE_PROJET (
 
 CREATE TABLE TRANSACTION (
     id_transaction SERIAL PRIMARY KEY,
-    id_annonce INT NOT NULL REFERENCES ANNONCE(id_annonce),
-    id_acheteur INT NOT NULL REFERENCES UTILISATEUR(id_utilisateur),
+    id_annonce uuid REFERENCES ANNONCE(id_annonce),
+    id_acheteur uuid REFERENCES UTILISATEUR(id_utilisateur),
     montant DECIMAL(10,2) NOT NULL,
     commission DECIMAL(10,2) NOT NULL,
     statut_paiement statut_paiement_enum DEFAULT 'EN_ATTENTE',
     date_transaction TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+---Insert
+
+INSERT INTO ROLE (nom_role) VALUES
+    ('ADMIN'),
+    ('PARTICULIER'),
+    ('PROFESSIONNEL'),
+    ('ANIMATEUR');
+
+
+INSERT INTO SITE (nom, localisation) VALUES
+    ('Siège - Lafayette', '174 rue La Fayette, Paris 10e'),
+    ('Annexe 11e', 'Paris 11e'),
+    ('Annexe 13e', 'Paris 13e'),
+    ('Annexe 16e', 'Paris 16e'),
+    ('Bourg-la-Reine', 'Bourg-la-Reine'),
+    ('Ivry', 'Ivry-sur-Seine'),
+    ('Montreuil', 'Montreuil');
+
+
+INSERT INTO OFFRE (nom, prix, duree_mois) VALUES
+    ('Freemium', 0.00, 1),
+    ('Premium Mensuel', 15.00, 1);
+
+
+-- Utilisateur admin par défaut (mot de passe : Admin1234! — à changer)
+-- Le hash de "Admin1234!" avec bcrypt
+INSERT INTO UTILISATEUR (nom, prenom, email, mot_de_passe, actif, id_role, id_site) VALUES
+    ('Admin', 'UpcycleConnect', 'admin@upcycleconnect.fr', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE, 1, 1);
+
