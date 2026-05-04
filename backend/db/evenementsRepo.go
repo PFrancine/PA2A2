@@ -36,7 +36,7 @@ func GetEvenements() ([]models.Evenement, error) {
 	return evenements, nil
 }
 
-func GetEvenementById(id int) (*models.Evenement, error) {
+func GetEvenementById(id uuid.UUID) (*models.Evenement, error) {
 	var e models.Evenement
 	row := Conn.QueryRow(
 		`SELECT id_evenement, titre, description, type_event, prix, date_event, lieu, id_animateur
@@ -56,8 +56,8 @@ func GetEvenementById(id int) (*models.Evenement, error) {
 	return &e, nil
 }
 
-func CreateEvenement(req models.CreateEvenementRequest, idAnimateur uuid.UUID) (int, error) {
-	var newID int
+func CreateEvenement(req models.CreateEvenementRequest, idAnimateur uuid.UUID) (uuid.UUID, error) {
+	var newID uuid.UUID
 	err := Conn.QueryRow(
 		`INSERT INTO EVENEMENT (titre, description, type_event, prix, date_event, lieu, id_animateur)
 		 VALUES ($1, $2, $3, $4, $5, $6, $7)
@@ -66,12 +66,12 @@ func CreateEvenement(req models.CreateEvenementRequest, idAnimateur uuid.UUID) (
 		req.Prix, req.DateEvent, req.Lieu, idAnimateur,
 	).Scan(&newID)
 	if err != nil {
-		return 0, fmt.Errorf("CreateEvenement : %v", err)
+		return uuid.Nil, fmt.Errorf("CreateEvenement : %v", err)
 	}
 	return newID, nil
 }
 
-func InscrireUtilisateur(idEvenement int, idUtilisateur uuid.UUID) error {
+func InscrireUtilisateur(idEvenement uuid.UUID, idUtilisateur uuid.UUID) error {
 	var count int
 	err := Conn.QueryRow(
 		`SELECT COUNT(*) FROM PARTICIPATION_EVENEMENT
@@ -96,7 +96,7 @@ func InscrireUtilisateur(idEvenement int, idUtilisateur uuid.UUID) error {
 	return nil
 }
 
-func GetInscriptionsByEvenement(idEvenement int) ([]models.Inscription, error) {
+func GetInscriptionsByEvenement(idEvenement uuid.UUID) ([]models.Inscription, error) {
 	var inscriptions []models.Inscription
 	rows, err := Conn.Query(
 		`SELECT id_evenement, id_utilisateur, statut_paiement

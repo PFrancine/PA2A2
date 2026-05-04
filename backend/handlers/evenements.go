@@ -3,12 +3,13 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
-	"strconv"
 	"strings"
 	"upcycleconnect/db"
 	"upcycleconnect/middleware"
 	"upcycleconnect/models"
 	"upcycleconnect/utils"
+
+	"github.com/google/uuid"
 )
 
 var typesEventValides = map[string]bool{
@@ -28,7 +29,7 @@ func GetEvenements(w http.ResponseWriter, r *http.Request) {
 
 // GET /evenements/{id} — public
 func GetEvenementById(w http.ResponseWriter, r *http.Request) {
-	id, err := strconv.Atoi(r.PathValue("id"))
+	id, err := uuid.Parse(r.PathValue("id"))
 	if err != nil {
 		http.Error(w, "id invalide", http.StatusBadRequest)
 		return
@@ -74,13 +75,13 @@ func CreateEvenement(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(map[string]int{"id": id})
+	json.NewEncoder(w).Encode(map[string]uuid.UUID{"id": id})
 }
 
 // POST /evenements/{id}/inscription — authentifié
 func InscrireEvenement(w http.ResponseWriter, r *http.Request) {
 	claims := r.Context().Value(middleware.ClaimsKey).(*utils.JWTClaims)
-	id, err := strconv.Atoi(r.PathValue("id"))
+	id, err := uuid.Parse(r.PathValue("id"))
 	if err != nil {
 		http.Error(w, "id invalide", http.StatusBadRequest)
 		return
@@ -107,7 +108,7 @@ func InscrireEvenement(w http.ResponseWriter, r *http.Request) {
 
 // GET /evenements/{id}/inscriptions — admin uniquement
 func GetInscriptions(w http.ResponseWriter, r *http.Request) {
-	id, err := strconv.Atoi(r.PathValue("id"))
+	id, err := uuid.Parse(r.PathValue("id"))
 	if err != nil {
 		http.Error(w, "id invalide", http.StatusBadRequest)
 		return
