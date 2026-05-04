@@ -33,10 +33,20 @@ func main() {
 	// ── Annonces (admin — id_role = 1) ────────────────────────────────────
 	http.HandleFunc("PATCH /annonces/{id}/statut", middleware.RequireRole(1, handlers.UpdateStatutAnnonce))
 
+	// ── Événements (public) ───────────────────────────────────────────────
+	http.HandleFunc("GET /evenements", handlers.GetEvenements)
+	http.HandleFunc("GET /evenements/{id}", handlers.GetEvenementById)
+
+	// ── Événements (animateur id_role=4 ou admin id_role=1) ───────────────
+	http.HandleFunc("POST /evenements", middleware.Auth(handlers.CreateEvenement))
+
+	// ── Événements (authentifié) ──────────────────────────────────────────
+	http.HandleFunc("POST /evenements/{id}/inscription", middleware.Auth(handlers.InscrireEvenement))
+
+	// ── Événements (admin) ────────────────────────────────────────────────
+	http.HandleFunc("GET /evenements/{id}/inscriptions", middleware.RequireRole(1, handlers.GetInscriptions))
+
 	// TODO — à implémenter dans les prochaines itérations :
-	// GET    /evenements
-	// POST   /evenements             (animateur/admin)
-	// POST   /evenements/{id}/inscription  (particulier)
 	// GET    /conteneurs
 	// POST   /depots                 (particulier, déclenche envoi code)
 	// PATCH  /depots/{id}/statut     (admin)
