@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard – UpcycleConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <span>♻️</span>
+            <span>UpcycleConnect</span>
+        </div>
+        <a href="dashboard.html" class="active">🏠 Accueil</a>
+        <a href="mes_annonces.html">📢 Mes annonces</a>
+        <a href="deposer_annonce.html">➕ Déposer une annonce</a>
+        <a href="evenements.html">📅 Événements</a>
+        <a href="mes_depots.html">📦 Mes dépôts</a>
+        <div class="sidebar-bottom">
+            <a href="#" onclick="logout()">🚪 Déconnexion</a>
+        </div>
+    </aside>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+
+        <!-- En-tête -->
+        <div class="dashboard-header">
+            <div>
+                <h1 class="hello" id="helloUser">Bonjour 👋</h1>
+                <p class="hello-sub">Voici un résumé de votre activité</p>
+            </div>
+            <a href="deposer_annonce.html" class="btn btn-primary" style="width:auto;margin-top:0">
+                + Nouvelle annonce
+            </a>
+        </div>
+
+        <!-- Stats rapides -->
+        <div class="stats-row" id="statsRow">
+            <div class="stat-card">
+                <div class="stat-icon">📢</div>
+                <div>
+                    <div class="stat-val" id="statAnnonces">–</div>
+                    <div class="stat-lbl">Mes annonces</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div>
+                    <div class="stat-val" id="statValidees">–</div>
+                    <div class="stat-lbl">Validées</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <div>
+                    <div class="stat-val" id="statAttente">–</div>
+                    <div class="stat-lbl">En attente</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div>
+                    <div class="stat-val" id="statEvents">–</div>
+                    <div class="stat-lbl">Événements dispo</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mes dernières annonces -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Mes dernières annonces</h2>
+                <a href="mes_annonces.html" class="see-all">Voir tout →</a>
+            </div>
+            <div class="cards-grid" id="annoncesGrid">
+                <div class="skeleton"></div>
+                <div class="skeleton"></div>
+                <div class="skeleton"></div>
+            </div>
+        </section>
+
+        <!-- Prochains événements -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Prochains événements</h2>
+                <a href="evenements.html" class="see-all">Voir tout →</a>
+            </div>
+            <div class="events-list" id="eventsList">
+                <div class="skeleton" style="height:70px"></div>
+                <div class="skeleton" style="height:70px"></div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>

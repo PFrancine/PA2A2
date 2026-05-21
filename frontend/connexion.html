@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion – UpcycleConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-layout">
+
+    <!-- Panneau gauche -->
+    <div class="left-panel">
+        <div class="brand">
+            <div class="brand-logo">♻️</div>
+            <span class="brand-name">UpcycleConnect</span>
+        </div>
+        <div class="left-content">
+            <h1>Donnez une<br><span>seconde vie</span><br>aux objets</h1>
+            <p>La plateforme qui connecte particuliers, artisans et professionnels autour de l'upcycling intelligent.</p>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">12k+</div>
+                <div class="stat-label">Objets recyclés</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4 800</div>
+                <div class="stat-label">Membres actifs</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panneau droit -->
+    <div class="right-panel">
+        <div class="form-box">
+            <h2>Bon retour 👋</h2>
+            <p class="subtitle">Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+
+            <div class="msg msg-error" id="errorMsg"></div>
+            <div class="msg msg-success" id="successMsg"></div>
+
+            <div class="field">
+                <label>Adresse email</label>
+                <input type="email" id="email" placeholder="jean@exemple.fr" autocomplete="email">
+            </div>
+
+            <div class="field">
+                <label>Mot de passe</label>
+                <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+                <div class="forgot"><a href="#">Mot de passe oublié ?</a></div>
+            </div>
+
+            <button class="btn btn-primary" id="btnLogin" onclick="handleLogin()">
+                <span class="spinner" id="spinner"></span>
+                <span id="btnText">Se connecter</span>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

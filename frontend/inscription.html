@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription – UpcycleConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-layout">
+
+    <!-- Panneau gauche -->
+    <div class="left-panel">
+        <div class="brand">
+            <div class="brand-logo">♻️</div>
+            <span class="brand-name">UpcycleConnect</span>
+        </div>
+        <div class="left-content">
+            <h1>Rejoignez<br><span>la communauté</span><br>de l'upcycling</h1>
+            <p>Créez votre compte en moins de 2 minutes et commencez à donner une seconde vie aux objets.</p>
+        </div>
+        <div class="roles-preview">
+            <p>Vous êtes</p>
+            <div class="role-tags">
+                <span class="role-tag">🏠 Particulier</span>
+                <span class="role-tag">🔨 Artisan</span>
+                <span class="role-tag">🏢 Professionnel</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panneau droit -->
+    <div class="right-panel">
+        <div class="form-box">
+            <h2>Créer un compte</h2>
+            <p class="subtitle">Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
+
+            <div class="msg msg-error" id="errorMsg"></div>
+            <div class="msg msg-success" id="successMsg"></div>
+
+            <div class="row">
+                <div class="field">
+                    <label>Nom</label>
+                    <input type="text" id="nom" placeholder="Dupont">
+                </div>
+                <div class="field">
+                    <label>Prénom</label>
+                    <input type="text" id="prenom" placeholder="Jean">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Adresse email</label>
+                <input type="email" id="email" placeholder="jean@exemple.fr">
+            </div>
+
+            <div class="field">
+                <label>Mot de passe <span class="hint">(min. 8 caractères)</span></label>
+                <input type="password" id="password" placeholder="••••••••">
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>Je suis</label>
+                    <div class="select-wrapper">
+                        <select id="role">
+                            <option value="2">Particulier</option>
+                            <option value="3">Professionnel</option>
+                            <option value="4">Animateur</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Site</label>
+                    <div class="select-wrapper">
+                        <select id="site">
+                            <option value="1">Siège – Lafayette</option>
+                            <option value="2">Annexe 11e</option>
+                            <option value="3">Annexe 13e</option>
+                            <option value="4">Annexe 16e</option>
+                            <option value="5">Bourg-la-Reine</option>
+                            <option value="6">Ivry</option>
+                            <option value="7">Montreuil</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" id="btnRegister" onclick="handleRegister()">
+                <span class="spinner" id="spinner"></span>
+                <span id="btnText">Créer mon compte</span>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>
