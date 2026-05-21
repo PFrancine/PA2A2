@@ -1,0 +1,249 @@
+/* ============================================================
+   DEPOSER ANNONCE
+   ============================================================ */
+
+/* ── Layout deux colonnes ── */
+.form-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    align-items: start;
+}
+
+/* ── Carte formulaire ── */
+.form-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 24px;
+}
+
+.form-card:last-child { margin-bottom: 0; }
+
+.form-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-card-icon { font-size: 22px; }
+
+.form-card-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--text);
+}
+
+/* Champs dans la carte */
+.form-card .field { margin-bottom: 20px; }
+.form-card .field:last-child { margin-bottom: 0; }
+
+.required { color: var(--green); }
+
+textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    resize: vertical;
+    min-height: 120px;
+    transition: all 0.2s;
+    background: white;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(44,163,74,0.12);
+}
+
+.field-hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* ── Sélecteur d'état visuel ── */
+.etat-visual {
+    margin-top: 20px;
+    padding: 16px;
+    background: var(--green-light);
+    border-radius: 12px;
+}
+
+.etat-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.etat-bar {
+    display: flex;
+    align-items: center;
+}
+
+.etat-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.etat-step span {
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.etat-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: white;
+    transition: all 0.2s;
+}
+
+.etat-line {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    margin: 0 4px;
+    margin-bottom: 22px;
+    transition: background 0.2s;
+}
+
+.etat-step.active .etat-dot {
+    background: var(--green);
+    border-color: var(--green);
+    box-shadow: 0 0 0 4px rgba(44,163,74,0.2);
+}
+
+.etat-step.active span { color: var(--green); font-weight: 600; }
+
+/* ── Colonne latérale ── */
+.form-aside { position: sticky; top: 24px; }
+
+/* Aperçu */
+.recap-preview {
+    background: var(--green-light);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.recap-titre {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 8px;
+    min-height: 20px;
+    font-style: italic;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.recap-titre.has-content {
+    font-style: normal;
+    opacity: 1;
+}
+
+.recap-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.recap-prix {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 8px;
+}
+
+.recap-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-style: italic;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Info box */
+.info-box {
+    display: flex;
+    gap: 10px;
+    background: #fef9c3;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #92400e;
+    line-height: 1.5;
+}
+
+.info-box span { font-size: 16px; flex-shrink: 0; }
+
+/* Bouton annuler */
+.btn-cancel {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.btn-cancel:hover { color: var(--text); }
+
+/* Bouton dans carte (pas width:100% par défaut dans style.css) */
+.recap-card .btn-primary { margin-top: 0; }
+
+/* Conseils */
+.tips-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.tips-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.tip-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .form-layout {
+        grid-template-columns: 1fr;
+    }
+    .form-aside { position: static; }
+}
+
+@media (max-width: 600px) {
+    .form-card { padding: 20px; }
+}

@@ -3,65 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion - UpcycleConnect</title>
-    <link rel="stylesheet" href="style_connexion.css?v=999">
+    <title>Connexion – UpcycleConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header class="navbar">
-    <div class="nav-left">
-        <img src="../images/logo_upcycle.png" class="logo">
-        <span class="brand">UpcycleConnect</span>
-        <nav>
-            <a href="../index.php">Accueil</a>
-            <a href="../catalogue.php">Catalogue</a>
-            <a href="../formations.php">Formations</a>
-            <a href="../forum.php">Forum</a>
-        </nav>
-    </div>
+<div class="auth-layout">
 
-    <div class="nav-search">
-        <input type="text" placeholder="Rechercher un objet, une formation...">
-    </div>
-
-    <div class="nav-right">
-        <span class="notification">🔔</span>
-        <div class="profile">
-            👤
-            <div class="dropdown">
-                <a href="#">Profil</a>
-                <a href="#">Paramètres</a>
-                <a href="../auth/logout.php">Déconnexion</a>
+    <!-- Panneau gauche -->
+    <div class="left-panel">
+        <div class="brand">
+            <div class="brand-logo">♻️</div>
+            <span class="brand-name">UpcycleConnect</span>
+        </div>
+        <div class="left-content">
+            <h1>Donnez une<br><span>seconde vie</span><br>aux objets</h1>
+            <p>La plateforme qui connecte particuliers, artisans et professionnels autour de l'upcycling intelligent.</p>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">12k+</div>
+                <div class="stat-label">Objets recyclés</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4 800</div>
+                <div class="stat-label">Membres actifs</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction</div>
             </div>
         </div>
     </div>
-</header>
 
-<section class="login-container">
-    <h2>Se connecter</h2>
-    <?php if($message): ?>
-        <p class="error"><?= $message ?></p>
-    <?php endif; ?>
+    <!-- Panneau droit -->
+    <div class="right-panel">
+        <div class="form-box">
+            <h2>Bon retour 👋</h2>
+            <p class="subtitle">Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
 
-    <form method="POST">
-        <label>Email</label>
-        <input type="email" name="email" required>
+            <div class="msg msg-error" id="errorMsg"></div>
+            <div class="msg msg-success" id="successMsg"></div>
 
-        <label>Mot de passe</label>
-        <input type="password" name="password" required>
+            <div class="field">
+                <label>Adresse email</label>
+                <input type="email" id="email" placeholder="jean@exemple.fr" autocomplete="email">
+            </div>
 
-        <button type="submit">Se connecter</button>
+            <div class="field">
+                <label>Mot de passe</label>
+                <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+                <div class="forgot"><a href="#">Mot de passe oublié ?</a></div>
+            </div>
 
-        <p class="links">
-            <a href="#">Mot de passe oublié ?</a>
-        </p>
+            <button class="btn btn-primary" id="btnLogin" onclick="handleLogin()">
+                <span class="spinner" id="spinner"></span>
+                <span id="btnText">Se connecter</span>
+            </button>
+        </div>
+    </div>
 
-        <p class="links">
-            Vous n'avez pas de compte ?
-            <a href="inscription.php">S'inscrire</a>
-        </p>
-    </form>
-</section>
+</div>
 
+<script src="js/auth.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@ CREATE TABLE UTILISATEUR (
     mot_de_passe VARCHAR(255) NOT NULL,
     actif BOOLEAN DEFAULT TRUE,
     id_role INT NOT NULL REFERENCES ROLE(id_role),
-    id_site INT NOT NULL REFERENCES SITE(id_site)
+    id_site INT REFERENCES SITE(id_site)
 );
 
 CREATE TABLE OFFRE (
@@ -148,5 +148,5 @@ INSERT INTO OFFRE (nom, prix, duree_mois) VALUES
 -- Utilisateur admin par défaut (mot de passe : Admin1234! — à changer)
 -- Le hash de "Admin1234!" avec bcrypt
 INSERT INTO UTILISATEUR (nom, prenom, email, mot_de_passe, actif, id_role, id_site) VALUES
-    ('Admin', 'UpcycleConnect', 'admin@upcycleconnect.fr', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE, 1, 1);
+    ('Admin', 'UpcycleConnect', 'admin@upcycleconnect.fr', 'a refaire', TRUE, 1, 1);
 
